@@ -14,8 +14,13 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'api',
         'passwords' => 'users',
+    ],
+
+    'apiemployees' => [
+        'driver' => 'eloquent',
+        'model' => App\Employee::class,
     ],
 
     /*
@@ -52,8 +57,13 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
+            'driver' => 'jwt',
+            'provider' => 'employees',
+        ],
+
+        'apiemployees' => [
+            'driver' => 'jwt',
+            'provider' => 'employees',
         ],
     ],
 
