@@ -18,11 +18,6 @@ return [
         'passwords' => 'users',
     ],
 
-    'apiemployees' => [
-        'driver' => 'eloquent',
-        'model' => App\Employee::class,
-    ],
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -58,13 +53,9 @@ return [
 
         'api' => [
             'driver' => 'jwt',
-            'provider' => 'employees',
+            'provider' => 'users',
         ],
 
-        'apiemployees' => [
-            'driver' => 'jwt',
-            'provider' => 'employees',
-        ],
     ],
 
     /*

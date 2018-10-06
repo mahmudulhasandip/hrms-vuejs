@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
+use Config;
+use JWTAuth;
+use JWTAuthException;
+
+use App\Employee;
+
 class AuthController extends Controller
 {
     /**
@@ -16,6 +22,8 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login']]);
+        Config::set('jwt.user', "App\Employee");
+        Config::set('auth.providers.users.model', \App\Employee::class);
     }
 
     /**
@@ -25,6 +33,7 @@ class AuthController extends Controller
      */
     public function login()
     {
+
         $credentials = request(['email', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {

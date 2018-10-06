@@ -18,13 +18,18 @@ use Illuminate\Http\Request;
 // });
 
 
+
+
+
+// Employee Routes
 Route::group([
 
     'middleware' => 'api',
-    'prefix' => 'auth'
+    'prefix' => 'auth/employee'
 
 ], function () {
-
+    // Config::set('jwt.user', "App\Employee");
+    // Config::set('auth.providers.users.model', \App\Employee::class);
     Route::post('login', 'EmployeeAuth\AuthController@login');
     Route::post('logout', 'EmployeeAuth\AuthController@logout');
     Route::post('refresh', 'EmployeeAuth\AuthController@refresh');
