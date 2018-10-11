@@ -14029,6 +14029,21 @@ var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
     mode: "history"
 });
 
+router.beforeEach(function (to, from, next) {
+    var requiresAuth = to.matched.some(function (record) {
+        return record.meta.requiresAuth;
+    });
+    var currentUser = store.state.currentUser;
+
+    if (requiresAuth && !currentUser) {
+        next("/login");
+    } else if (to.path == "/login" && currentUser) {
+        next("/admin/dashboard");
+    } else {
+        next();
+    }
+});
+
 var app = new Vue({
     el: "#app",
     router: router,
@@ -50908,7 +50923,10 @@ var routes = [{
 // admin routes
 {
     path: "/admin/dashboard",
-    component: __WEBPACK_IMPORTED_MODULE_1__components_admin_components_AdminDashboard_vue___default.a
+    component: __WEBPACK_IMPORTED_MODULE_1__components_admin_components_AdminDashboard_vue___default.a,
+    meta: {
+        requiresAuth: true
+    }
 
     // employee routes
 }];
@@ -51047,6 +51065,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_auth_js__ = __webpack_require__(59);
 //
 //
 //
@@ -51131,8 +51150,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "login"
+  name: "login",
+  data: function data() {
+    return {
+      form: {
+        email: "",
+        password: ""
+      },
+      error: null
+    };
+  },
+
+  methods: {
+    authenticate: function authenticate() {
+      var _this = this;
+
+      this.$store.dispatch("login");
+
+      Object(__WEBPACK_IMPORTED_MODULE_0__helpers_auth_js__["b" /* login */])(this.$data.form).then(function (res) {
+        _this.$store.commit("loginSuccess", res);
+        _this.$router.push({ path: "/admin/dashboard" });
+      }).catch(function (error) {
+        _this.$store.commit("loginFailed", { error: error });
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -51143,65 +51188,54 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { attrs: { id: "preloader" } }, [
-        _c("div", { staticClass: "canvas" }, [
-          _c("img", {
-            staticClass: "loader-logo",
-            attrs: { src: "assets/img/logo.png", alt: "logo" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "spinner" })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container-fluid no-padding h-100" }, [
-        _c("div", { staticClass: "row flex-row h-100 bg-white" }, [
-          _c("div", { staticClass: "col-xl-8 col-lg-6 col-md-5 no-padding" }, [
-            _c("div", { staticClass: "elisyam-bg background-01" }, [
-              _c("div", { staticClass: "elisyam-overlay overlay-01" }),
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container-fluid no-padding h-100" }, [
+      _c("div", { staticClass: "row flex-row h-100 bg-white" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-xl-4 col-lg-6 col-md-7 my-auto no-padding" },
+          [
+            _c("div", { staticClass: "authentication-form mx-auto" }, [
+              _vm._m(2),
               _vm._v(" "),
-              _c("div", { staticClass: "authentication-col-content mx-auto" }, [
-                _c("h1", { staticClass: "gradient-text-01" }, [
-                  _vm._v(
-                    "\n                                Welcome To Elisyam!\n                            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "description" }, [
-                  _vm._v(
-                    "\n                                Etiam consequat urna at magna bibendum, in tempor arcu fermentum vitae mi massa egestas.\n                            "
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-xl-4 col-lg-6 col-md-7 my-auto no-padding" },
-            [
-              _c("div", { staticClass: "authentication-form mx-auto" }, [
-                _c("div", { staticClass: "logo-centered" }, [
-                  _c("a", { attrs: { href: "db-default.html" } }, [
-                    _c("img", {
-                      attrs: { src: "assets/img/logo.png", alt: "logo" }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("h3", [_vm._v("Sign In To Elisyam")]),
-                _vm._v(" "),
-                _c("form", [
+              _c("h3", [_vm._v("Sign In To Elisyam")]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.authenticate($event)
+                    }
+                  }
+                },
+                [
                   _c("div", { staticClass: "group material-input" }, [
-                    _c("input", { attrs: { type: "text", required: "" } }),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.email,
+                          expression: "form.email"
+                        }
+                      ],
+                      attrs: { type: "email", required: "" },
+                      domProps: { value: _vm.form.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "email", $event.target.value)
+                        }
+                      }
+                    }),
                     _vm._v(" "),
                     _c("span", { staticClass: "highlight" }),
                     _vm._v(" "),
@@ -51211,69 +51245,143 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "group material-input" }, [
-                    _c("input", { attrs: { type: "password", required: "" } }),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.password,
+                          expression: "form.password"
+                        }
+                      ],
+                      attrs: { type: "password", required: "" },
+                      domProps: { value: _vm.form.password },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "password", $event.target.value)
+                        }
+                      }
+                    }),
                     _vm._v(" "),
                     _c("span", { staticClass: "highlight" }),
                     _vm._v(" "),
                     _c("span", { staticClass: "bar" }),
                     _vm._v(" "),
                     _c("label", [_vm._v("Password")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col text-left" }, [
-                    _c("div", { staticClass: "styled-checkbox" }, [
-                      _c("input", {
-                        attrs: {
-                          type: "checkbox",
-                          name: "checkbox",
-                          id: "remeber"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("label", { attrs: { for: "remeber" } }, [
-                        _vm._v("Remember me")
-                      ])
-                    ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col text-right" }, [
-                    _c("a", { attrs: { href: "pages-forgot-password.html" } }, [
-                      _vm._v("Forgot Password ?")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "sign-btn text-center" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-lg btn-gradient-01",
-                      attrs: { href: "db-default.html" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                Sign in\n                            "
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "register" }, [
-                  _vm._v(
-                    "\n                            Don't have an account?\n                            "
-                  ),
-                  _c("br"),
+                  _vm._m(3),
                   _vm._v(" "),
-                  _c("a", { attrs: { href: "pages-register.html" } }, [
-                    _vm._v("Create an account")
-                  ])
-                ])
-              ])
-            ]
-          )
+                  _vm._m(4)
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(5)
+            ])
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "preloader" } }, [
+      _c("div", { staticClass: "canvas" }, [
+        _c("img", {
+          staticClass: "loader-logo",
+          attrs: { src: "assets/img/logo.png", alt: "logo" }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "spinner" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xl-8 col-lg-6 col-md-5 no-padding" }, [
+      _c("div", { staticClass: "elisyam-bg background-01" }, [
+        _c("div", { staticClass: "elisyam-overlay overlay-01" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "authentication-col-content mx-auto" }, [
+          _c("h1", { staticClass: "gradient-text-01" }, [
+            _vm._v(
+              "\n                                Welcome To Elisyam!\n                            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "description" }, [
+            _vm._v(
+              "\n                                Etiam consequat urna at magna bibendum, in tempor arcu fermentum vitae mi massa egestas.\n                            "
+            )
+          ])
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "logo-centered" }, [
+      _c("a", { attrs: { href: "db-default.html" } }, [
+        _c("img", { attrs: { src: "assets/img/logo.png", alt: "logo" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col text-left" }, [
+        _c("div", { staticClass: "styled-checkbox" }, [
+          _c("input", {
+            attrs: { type: "checkbox", name: "checkbox", id: "remeber" }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "remeber" } }, [_vm._v("Remember me")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col text-right" }, [
+        _c("a", { attrs: { href: "pages-forgot-password.html" } }, [
+          _vm._v("Forgot Password ?")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sign-btn text-center" }, [
+      _c("input", {
+        staticClass: "btn btn-lg btn-gradient-01",
+        attrs: { type: "submit", value: "Sign in" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "register" }, [
+      _vm._v(
+        "\n                            Don't have an account?\n                            "
+      ),
+      _c("br"),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "pages-register.html" } }, [
+        _vm._v("Create an account")
       ])
     ])
   }
@@ -51353,7 +51461,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v(_vm._s(_vm.welcome))])
+  return _c("h1", [_vm._v("admin Dashboard")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -51378,11 +51486,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "admin-dashboard",
-  computed: {
-    welcome: function welcome() {
-      return this.$store.getters.welcome;
-    }
-  }
+  computed: {}
 });
 
 /***/ }),
@@ -51390,18 +51494,93 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_auth__ = __webpack_require__(59);
+
+
+var user = Object(__WEBPACK_IMPORTED_MODULE_0__helpers_auth__["a" /* getLocalUser */])();
+
 /* harmony default export */ __webpack_exports__["a"] = ({
     state: {
-        welcomeMassege: "Welcome to vue app"
+        currentUser: user,
+        isLoggedIn: !!user,
+        loading: false,
+        auth_error: null,
+        employees: []
     },
     getters: {
-        welcome: function welcome(state) {
-            return state.welcomeMassege;
+        isLoading: function isLoading(state) {
+            return state.loading;
+        },
+        isLoggedIn: function isLoggedIn(state) {
+            return state.isLoggedIn;
+        },
+        currentUsers: function currentUsers(state) {
+            return state.currentUsers;
+        },
+        authError: function authError(state) {
+            return state.auth_error;
+        },
+        employees: function employees(state) {
+            return state.employees;
         }
     },
-    mutatuions: {},
-    actions: {}
+    mutations: {
+        login: function login(state) {
+            state.loading = true;
+            state.auth_error = null;
+        },
+        loginSuccess: function loginSuccess(state, payload) {
+            state.auth_error = null;
+            state.isLoggedIn = true;
+            state.loading = false;
+            state.currentUser = Object.assign({}, payload.user, {
+                token: payload.acces_token
+            });
+
+            localStorage.setItem("user", JSON.stringify(state.currentUser));
+        },
+        loginFailed: function loginFailed(state, payload) {
+            state.loading = true, state.auth_error = payload.error;
+        },
+        logout: function logout(state) {
+            localStorage.removeItem("user");
+            state.isLoggedIn = false;
+            state.currentUser = null;
+        }
+    },
+    actions: {
+        login: function login(context) {
+            context.commit("login");
+        }
+    }
 });
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["b"] = login;
+/* harmony export (immutable) */ __webpack_exports__["a"] = getLocalUser;
+function login(credentials) {
+    return new Promise(function (res, rej) {
+        axios.post("/api/auth/employee/login", credentials).then(function (response) {
+            res(response.data);
+        }).catch(function (err) {
+            rej("Wrong email or password");
+        });
+    });
+}
+
+function getLocalUser() {
+    var UserStr = localStorage.getItem("user");
+
+    if (!UserStr) {
+        return null;
+    }
+
+    return JSON.parse(UserStr);
+}
 
 /***/ })
 /******/ ]);
