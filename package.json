@@ -20,6 +20,9 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "vuetify": "^1.2.6"
+        "validate.js": "^0.12.0",
+        "vue-router": "^3.0.1",
+        "vuetify": "^1.2.6",
+        "vuex": "^3.0.1"
     }
 }
