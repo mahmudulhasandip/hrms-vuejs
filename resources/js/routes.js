@@ -1,8 +1,8 @@
 import Login from "./components/Login.vue";
 import AdminDashboard from "./components/admin-components/AdminDashboard.vue";
+import EmployeeDashboard from "./components/employee-components/EmployeeDashboard.vue";
 
-export const routes = [
-    {
+export const routes = [{
         path: "/",
         component: Login
     },
@@ -19,7 +19,16 @@ export const routes = [
         meta: {
             requiresAuth: true
         }
-    }
+    },
+
+
 
     // employee routes
+    {
+        path: "/employee/dashboard",
+        component: EmployeeDashboard,
+        meta: {
+            requiresAuth: true
+        }
+    }
 ];

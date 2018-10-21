@@ -37,18 +37,28 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            {{-- main #app div --}}
-            <div id="app">
-                {{-- main component --}}
-                <main-app/>
+    <body id="page-top">
+
+        {{-- main #app div --}}
+        <div id="app">
+            <!-- Begin Preloader -->
+            <div id="preloader">
+                <div class="canvas">
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="logo" class="loader-logo">
+                    <div class="spinner"></div>
+                </div>
             </div>
+            <!-- End Preloader -->
+
+            {{-- main component --}}
+            <main-app/>
         </div>
+
+
         <script src="{{ asset('assets/vendors/js/base/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/vendors/js/base/core.min.js') }}"></script>
         <script src="{{ asset('assets/vendors/js/nicescroll/nicescroll.min.js') }}"></script>
-        <script src="{{ asset('assets/vendors/js/app/app.min.js') }}"></script>
+        <script src="{{ asset('assets/vendors/js/app/app.js') }}"></script>
         <script src="{{ asset('/js/app.js') }}"></script>
     </body>
 </html>

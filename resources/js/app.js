@@ -11,7 +11,9 @@ window.Vue = require("vue");
 import VueRouter from "vue-router";
 import Vuex from "vuex";
 import StoreData from "./store";
-import { routes } from "./routes";
+import {
+    routes
+} from "./routes";
 import MainApp from "./components/MainApp.vue";
 
 Vue.use(VueRouter);
@@ -31,7 +33,7 @@ router.beforeEach((to, from, next) => {
     if (requiresAuth && !currentUser) {
         next("/login");
     } else if (to.path == "/login" && currentUser) {
-        next("/admin/dashboard");
+        next("/employee/dashboard");
     } else {
         next();
     }

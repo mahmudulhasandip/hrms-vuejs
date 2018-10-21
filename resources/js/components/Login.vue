@@ -1,13 +1,6 @@
 <template>
     <div>
-    <!-- Begin Preloader -->
-        <div id="preloader">
-            <div class="canvas">
-                <img src="assets/img/logo.png" alt="logo" class="loader-logo">
-                <div class="spinner"></div>
-            </div>
-        </div>
-        <!-- End Preloader -->
+
         <!-- Begin Container -->
         <div class="container-fluid no-padding h-100">
             <div class="row flex-row h-100 bg-white">
@@ -102,7 +95,7 @@ export default {
       login(this.$data.form)
         .then(res => {
           this.$store.commit("loginSuccess", res);
-          this.$router.push({ path: "/admin/dashboard" });
+          this.$router.push({ path: "/employee/dashboard" });
         })
         .catch(error => {
           this.$store.commit("loginFailed", { error });
