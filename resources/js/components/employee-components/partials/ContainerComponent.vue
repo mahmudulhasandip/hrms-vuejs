@@ -1,23 +1,25 @@
 <template>
-    <div class="page">
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
         <!-- header -->
         <app-header />
 
-        <div class="page-content d-flex align-items-stretch">
-            <!-- sidebar -->
-            <app-sidebar></app-sidebar>
+        <!-- sidebar -->
+        <app-sidebar></app-sidebar>
 
-            <!-- main container -->
-            <div class="content-inner">
-                <!-- content -->
-                <dash-items></dash-items>
+        <div class="page-wrapper">
 
-                <!-- footer -->
-                <app-footer></app-footer>
-            </div>
+            <!-- content -->
+            <dash-items></dash-items>
+
+            <!-- footer -->
+            <app-footer></app-footer>
         </div>
     </div>
 </template>
+
 
 <script>
 import HeaderComponent from "./HeaderComponent";
@@ -33,4 +35,12 @@ export default {
   }
 };
 </script>
+
+<style>
+.page-wrapper .container-fluid.main-container {
+  padding: 20px;
+  min-height: calc(100vh - 180px);
+}
+</style>
+
 

@@ -1,31 +1,57 @@
 <template>
-    <div class="container-fluid">
-        <!-- Begin Page Header-->
-        <div class="row">
-            <div class="page-header">
-                <div class="d-flex align-items-center">
-                    <h2 class="page-header-title">Blank Page</h2>
-                    <div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="db-all.html"><i class="ti ti-home"></i></a></li>
-                            <li class="breadcrumb-item active">Blank</li>
-                        </ul>
+    <div >
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title">Starter Page</h4>
+                </div>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Starter Page</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End Page Header -->
-        <!-- Begin Row -->
-        <div class="row flex-row">
-            <div class="col-xl-12 col-12">
-                <div class="widget has-shadow">
-                    <div class="widget-body">
-                        <p class="text-primary mt-2 mb-2">Play with Elisyam :)</p>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid main-container">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            This is some text within a card block.
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
         </div>
-        <!-- End Row -->
     </div>
     <!-- End Container -->
 </template>
