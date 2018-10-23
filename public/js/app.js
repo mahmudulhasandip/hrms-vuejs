@@ -37843,6 +37843,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -37854,6 +37855,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     "app-sidebar": __WEBPACK_IMPORTED_MODULE_1__SidebarComponent___default.a,
     "app-footer": __WEBPACK_IMPORTED_MODULE_2__FooterComponent___default.a,
     "dash-items": __WEBPACK_IMPORTED_MODULE_3__DashboardItem___default.a
+  },
+  created: function created() {
+    var recaptchaScript = document.createElement('script');
+    recaptchaScript.setAttribute('src', 'http://127.0.0.1:8000/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js');
+    document.body.appendChild(recaptchaScript);
   }
 });
 

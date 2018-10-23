@@ -80,5 +80,6 @@
         <script src="{{ asset('dist/js/custom.min.js') }}"></script>
         <!--This page JavaScript -->
         <script src="{{ asset('/js/app.js') }}"></script>
+        {{-- <script src="{{ asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script> --}}
     </body>
 </html>
