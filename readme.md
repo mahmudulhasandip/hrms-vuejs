@@ -1,7 +1,7 @@
 <h2>Hrms Vuejs</h2>
 
 <b>Run this commads serially</b>
-
+<p>Create a database named "hrms" and configure it in .env file</p>
 <ul>
     <li>composer update</li>
     <li>npm install</li>
