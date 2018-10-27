@@ -33,12 +33,7 @@ export default {
     "app-sidebar": SidebarComponent,
     "app-footer": FooterComponent,
     "dash-items": DashboardItem
-  },
-  created() {
-    let recaptchaScript = document.createElement('script')
-    recaptchaScript.setAttribute('src', 'http://127.0.0.1:8000/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')
-    document.body.appendChild(recaptchaScript)
-  },
+  }
 };
 </script>
 

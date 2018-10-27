@@ -24,6 +24,7 @@
                             <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><i class="mdi mdi-playlist-check"></i><span class="hide-menu"> item 1.4</span></a></li>
                         </ul>
                     </li>
+                    <li class="sidebar-item" ><a @click.prevent="logout" class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false"><i class="ti-loop"></i><span class="hide-menu">Log out</span></a></li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
@@ -34,3 +35,15 @@
     <!-- End Left Sidebar - style you can find in sidebar.scss  -->
     <!-- ============================================================== -->
 </template>
+
+
+<script>
+export default {
+    methods: {
+        logout(){
+            this.$store.commit('logout');
+            this.$router.push('/login');
+        }
+    }
+}
+</script>
