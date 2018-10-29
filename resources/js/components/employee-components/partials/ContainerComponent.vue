@@ -2,24 +2,20 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper">
+    <div id="wrapper">
         <!-- header -->
         <app-header />
 
         <!-- sidebar -->
         <app-sidebar></app-sidebar>
 
-        <div class="page-wrapper">
+        <!-- content -->
+        <dash-items></dash-items>
 
-            <!-- content -->
-            <dash-items></dash-items>
-
-            <!-- footer -->
-            <app-footer></app-footer>
-        </div>
+        <!-- footer -->
+        <app-footer></app-footer>
     </div>
 </template>
-
 
 
 <script>
@@ -34,11 +30,22 @@ export default {
     "app-footer": FooterComponent,
     "dash-items": DashboardItem
   },
-  created() {
-    let recaptchaScript = document.createElement('script')
-    recaptchaScript.setAttribute('src', 'http://127.0.0.1:8000/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')
-    document.body.appendChild(recaptchaScript)
-  },
+  mounted() {
+    const plugin = document.createElement("script");
+    plugin.setAttribute(
+      "src",
+      "http://localhost:8000/assets/js/jquery.core.js"
+    );
+    plugin.async = true;
+    document.body.appendChild(plugin);
+    const plugin2 = document.createElement("script");
+    plugin2.setAttribute(
+      "src",
+      "http://localhost:8000/assets/js/jquery.app.js"
+    );
+    plugin2.async = true;
+    document.body.appendChild(plugin2);
+  }
 };
 </script>
 

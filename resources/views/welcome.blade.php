@@ -7,7 +7,11 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        {{-- Website title --}}
         <title>Laravel</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.ico') }}">
 
         <!-- Google Fonts -->
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
@@ -19,38 +23,31 @@
             }
           });
         </script>
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
 
-        <!-- Custom CSS -->
-    <link href="{{ asset('dist/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <!-- Icons css -->
+        <link href="{{ asset('assets/libs/@mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/libs/dripicons/webfont/webfont.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/libs/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <!-- build:css -->
+        <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet" type="text/css" />
+        <!-- endbuild -->
+
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
     </head>
-    <body>
+    <body >
 
 
         {{-- main #app div --}}
         <div id="app">
-
-            <!-- ============================================================== -->
-            <!-- Preloader - style you can find in spinners.css -->
-            <!-- ============================================================== -->
-            <div class="preloader">
-                <div class="lds-ripple">
-                    <div class="lds-pos"></div>
-                    <div class="lds-pos"></div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- Preloader - style you can find in spinners.css -->
-            <!-- ============================================================== -->
 
             {{-- main component --}}
             <main-app/>
@@ -61,25 +58,14 @@
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
-        <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
         <!-- Bootstrap tether Core JavaScript -->
-        <script src="{{ asset('assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
-        <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-        <!-- apps -->
-        <script src="{{ asset('dist/js/app.min.js') }}"></script>
-        <script src="{{ asset('dist/js/app.init.js') }}"></script>
-        <script src="{{ asset('dist/js/app-style-switcher.js') }}"></script>
-        <!-- slimscrollbar scrollbar JavaScript -->
-        {{-- <script src="{{ asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script> --}}
-        <script src="{{ asset('assets/extra-libs/sparkline/sparkline.js') }}"></script>
-        <!--Wave Effects -->
-        <script src="{{ asset('dist/js/waves.js') }}"></script>
-        <!--Menu sidebar -->
-        <script src="{{ asset('dist/js/sidebarmenu.js') }}"></script>
-        <!--Custom JavaScript -->
-        <script src="{{ asset('dist/js/custom.min.js') }}"></script>
+        {{-- <script src="{{ asset('assets/libs/popper.js/dist/umd/popper.min.js') }}"></script> --}}
+        <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/libs/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+        <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
+
         <!--This page JavaScript -->
         <script src="{{ asset('/js/app.js') }}"></script>
-        {{-- <script src="{{ asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script> --}}
     </body>
 </html>
