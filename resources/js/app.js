@@ -45,5 +45,10 @@ const app = new Vue({
     store,
     components: {
         MainApp
-    }
+    },
+    mounted() {
+        let recaptchaScript = document.createElement('script')
+        recaptchaScript.setAttribute('src', 'http://127.0.0.1:8000/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')
+        document.body.appendChild(recaptchaScript)
+      },
 });

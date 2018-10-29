@@ -1165,6 +1165,11 @@ var app = new Vue({
     store: store,
     components: {
         MainApp: __WEBPACK_IMPORTED_MODULE_4__components_MainApp_vue___default.a
+    },
+    mounted: function mounted() {
+        var recaptchaScript = document.createElement('script');
+        recaptchaScript.setAttribute('src', 'http://127.0.0.1:8000/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js');
+        document.body.appendChild(recaptchaScript);
     }
 });
 
@@ -38422,7 +38427,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(76)
 /* template */
 var __vue_template__ = __webpack_require__(62)
 /* template functional */
@@ -39494,6 +39499,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "main-app"
+
 });
 
 /***/ }),
@@ -39521,6 +39527,176 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    logout: function logout() {
+      this.$store.commit("logout");
+      this.$router.push("/login");
+    }
+  }
+});
 
 /***/ })
 /******/ ]);
