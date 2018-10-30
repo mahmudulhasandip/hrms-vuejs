@@ -71,6 +71,7 @@
 
 <script>
 import { login } from "../helpers/auth.js";
+import { userData } from "../helpers/auth.js";
 
 export default {
   name: "login",
@@ -85,7 +86,7 @@ export default {
   },
   methods: {
     authenticate() {
-      this.$store.dispatch("login");
+      //   this.$store.dispatch("login");
 
       login(this.$data.form)
         .then(res => {

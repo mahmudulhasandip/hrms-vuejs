@@ -11,6 +11,18 @@ export function login(credentials) {
     });
 }
 
+export function userData(access_token) {
+    return new Promise((res, rej) => {
+        axios.post("/api/auth/employee/me?token=" + access_token)
+            .then(response => {
+                res(response.date)
+            })
+            .catch(err => {
+                rej('wrong token')
+            })
+    })
+}
+
 export function getLocalUser() {
     const UserStr = localStorage.getItem("user");
 

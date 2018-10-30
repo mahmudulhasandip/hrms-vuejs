@@ -17,7 +17,7 @@
     <li>npm run watch</li>
 </ul>
 
-<p>Now goto the url: <a href="http://localhost:8000/login">http://localhost:8000/login</a></p>
+<p>Now goto the url: <a target='_blank' href="http://localhost:8000/login">http://localhost:8000/login</a></p>
 
 <p>Username: ablaze.dip@gmail.com</p>
 <p>Password: 123456</p>
