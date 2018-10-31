@@ -10,9 +10,8 @@
         <app-sidebar></app-sidebar>
 
         <!-- content -->
-        <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-            <router-view></router-view>
-        </transition>
+        <!-- <dash-items></dash-items> -->
+        <router-view></router-view>
 
         <!-- footer -->
         <app-footer></app-footer>
@@ -24,7 +23,6 @@
 import HeaderComponent from "./HeaderComponent";
 import SidebarComponent from "./SidebarComponent";
 import FooterComponent from "./FooterComponent";
-import DashboardItem from "../DashboardItem";
 export default {
   components: {
     "app-header": HeaderComponent,
@@ -51,7 +49,6 @@ export default {
 </script>
 
 <style>
-@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css");
 .page-wrapper .container-fluid.main-container {
   padding: 20px;
   min-height: calc(100vh - 180px);

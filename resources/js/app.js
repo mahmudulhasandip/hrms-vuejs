@@ -15,6 +15,7 @@ import {
     routes
 } from "./routes";
 import MainApp from "./components/MainApp.vue";
+import Axios from "axios";
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -39,6 +40,13 @@ router.beforeEach((to, from, next) => {
     }
 });
 
+axios.interceptors.response.use(null, (error) => {
+    if (error.response.status == 401) {
+        store.commit('logout');
+        router.push('/login');
+    }
+})
+
 const app = new Vue({
     el: "#app",
     router,
@@ -50,5 +58,5 @@ const app = new Vue({
         let recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', 'http://127.0.0.1:8000/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')
         document.body.appendChild(recaptchaScript)
-      },
+    },
 });
