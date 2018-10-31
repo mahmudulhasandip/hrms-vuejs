@@ -27,6 +27,7 @@ class CreateEmployeesTable extends Migration
             $table->string('nationality')->nullable();
 			$table->string('nid')->nullable();
 			$table->string('phone')->nullable();
+            $table->integer('role_id')->unsigned();
 			$table->string('marital_status')->nullable();
 			$table->string('father_name')->nullable();
 			$table->string('mother_name')->nullable();
@@ -36,6 +37,8 @@ class CreateEmployeesTable extends Migration
 			$table->string('leave')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
     }
 

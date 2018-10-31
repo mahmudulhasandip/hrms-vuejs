@@ -1,5 +1,7 @@
 <template>
+    <!-- <dash-items></dash-items> -->
     <app-container></app-container>
+
 </template>
 
 <script>

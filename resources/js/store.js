@@ -1,4 +1,6 @@
-import { getLocalUser } from "./helpers/auth";
+import {
+    getLocalUser
+} from "./helpers/auth";
 
 const user = getLocalUser();
 
@@ -17,8 +19,8 @@ export default {
         isLoggedIn(state) {
             return state.isLoggedIn;
         },
-        currentUsers(state) {
-            return state.currentUsers;
+        currentUser(state) {
+            return state.currentUser;
         },
         authError(state) {
             return state.auth_error;
@@ -37,7 +39,7 @@ export default {
             state.isLoggedIn = true;
             state.loading = false;
             state.currentUser = Object.assign({}, payload.user, {
-                token: payload.acces_token
+                token: payload.access_token
             });
 
             localStorage.setItem("user", JSON.stringify(state.currentUser));

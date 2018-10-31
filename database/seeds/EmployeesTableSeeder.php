@@ -27,6 +27,7 @@ class EmployeesTableSeeder extends Seeder
             'nationality' => 'Bangladeshi',
             'nid' => '19948524910000068',
             'phone' => '01737849573',
+            'role_id' => '3',
             'marital_status' => 'unmarried',
             'father_name' => '(late) Md. Abdul Mannan',
             'mother_name' => 'Mst. Dilruba Akter',

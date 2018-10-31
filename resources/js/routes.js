@@ -1,6 +1,9 @@
 import Login from "./components/Login.vue";
 import AdminDashboard from "./components/admin-components/AdminDashboard.vue";
-import EmployeeDashboard from "./components/employee-components/EmployeeDashboard.vue";
+
+// employee components
+import EmployeeComponents from "./components/employee-components/EmployeeComponents.vue";
+import DashboardItem from "./components/employee-components/DashboardItem.vue";
 
 export const routes = [{
         path: "/",
@@ -25,8 +28,12 @@ export const routes = [{
 
     // employee routes
     {
-        path: "/employee/dashboard",
-        component: EmployeeDashboard,
+        path: "/employee",
+        component: EmployeeComponents,
+        children: [{
+            path: "dashboard",
+            component: DashboardItem
+        }],
         meta: {
             requiresAuth: true
         }

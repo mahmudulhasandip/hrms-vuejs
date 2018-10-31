@@ -8,7 +8,7 @@
 
                     <div class="wrapper-page">
                         <div class="account-pages">
-                            <div class="account-box">
+                            <div class="account-box" >
 
                                 <!-- Logo box-->
                                 <div class="account-logo-box">
@@ -40,6 +40,7 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        <div><p class="text-danger">ok</p></div>
 
                                         <div class="form-group row text-center">
                                             <div class="col-12">
@@ -71,6 +72,7 @@
 
 <script>
 import { login } from "../helpers/auth.js";
+// import { userData } from "../helpers/auth.js";
 
 export default {
   name: "login",
@@ -85,7 +87,7 @@ export default {
   },
   methods: {
     authenticate() {
-      this.$store.dispatch("login");
+      //   this.$store.dispatch("login");
 
       login(this.$data.form)
         .then(res => {
@@ -100,3 +102,9 @@ export default {
 };
 </script>
 
+
+<style scope>
+.account-pages {
+  background: url("/assets/images/auth-bg.jpg") no-repeat center center;
+}
+</style>

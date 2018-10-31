@@ -58,13 +58,3 @@ export default {
   }
 };
 </script>
-
-
-<style scoped>
-#sidebar-menu > ul > li > a.router-link-active {
-  color: #188ae2;
-  background-color: #f8f9fa;
-  border-right-color: #188ae2;
-  transition: all 0.3s ease;
-}
-</style>
