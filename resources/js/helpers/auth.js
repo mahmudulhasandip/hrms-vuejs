@@ -12,11 +12,13 @@ export function login(credentials) {
 }
 
 export function logout(token) {
+    //alert(token);
+
     return new Promise((res, rej) => {
         axios
             .post('/api/auth/employee/logout', {
                 headers: {
-                    Authorization: 'Bearer' + token
+                    "Authorization": `Bearer ${token}`
                 }
             })
             .then(response => {

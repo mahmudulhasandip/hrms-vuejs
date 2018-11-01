@@ -633,10 +633,12 @@ function login(credentials) {
 }
 
 function logout(token) {
+    //alert(token);
+
     return new Promise(function (res, rej) {
         axios.post('/api/auth/employee/logout', {
             headers: {
-                Authorization: 'Bearer' + token
+                "Authorization": "Bearer " + token
             }
         }).then(function (response) {
             alert('ok');
@@ -37154,7 +37156,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n.account-pages {\r\n  background: url(\"/assets/images/auth-bg.jpg\") no-repeat center center;\n}\r\n", ""]);
+exports.push([module.i, "\n.account-pages {\n  background: url(\"/assets/images/auth-bg.jpg\") no-repeat center center;\n}\n", ""]);
 
 // exports
 
@@ -37857,7 +37859,7 @@ exports = module.exports = __webpack_require__(5)(false);
 exports.push([module.i, "@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css);", ""]);
 
 // module
-exports.push([module.i, "\n.page-wrapper .container-fluid.main-container {\n  padding: 20px;\n  min-height: calc(100vh - 180px);\n}\n", ""]);
+exports.push([module.i, "\n.page-wrapper .container-fluid.main-container {\r\n  padding: 20px;\r\n  min-height: calc(100vh - 180px);\n}\r\n", ""]);
 
 // exports
 
@@ -38124,13 +38126,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       //   this.$store.commit("logout");
       //   this.$router.push("/login");
       var token = this.$store.getters.currentUser.token;
-      alert(token);
       Object(__WEBPACK_IMPORTED_MODULE_0__helpers_auth_js__["c" /* logout */])(token).then(function (res) {
         console.log(res);
         _this.$store.commit("logout");
         _this.$router.push("/login");
       }).catch(function (error) {
-        rej("error");
+        console.log(error);
       });
     }
   }
@@ -38701,7 +38702,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n#sidebar-menu > ul > li > a.router-link-active[data-v-5cde9649] {\r\n  color: #188ae2;\r\n  background-color: #f8f9fa;\r\n  border-right-color: #188ae2;\r\n  -webkit-transition: all 0.3s ease;\r\n  transition: all 0.3s ease;\n}\r\n", ""]);
+exports.push([module.i, "\n#sidebar-menu > ul > li > a.router-link-active[data-v-5cde9649] {\n  color: #188ae2;\n  background-color: #f8f9fa;\n  border-right-color: #188ae2;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\n", ""]);
 
 // exports
 
@@ -38881,7 +38882,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-12 text-center" }, [
-              _vm._v("\r\n                    2018 © HRMS\r\n                ")
+              _vm._v("\n                    2018 © HRMS\n                ")
             ])
           ])
         ])
@@ -38941,7 +38942,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "checkbox1" } }, [
                 _vm._v(
-                  "\r\n                        Notifications\r\n                    "
+                  "\n                        Notifications\n                    "
                 )
               ])
             ]),
@@ -38953,7 +38954,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "checkbox2" } }, [
                 _vm._v(
-                  "\r\n                        API Access\r\n                    "
+                  "\n                        API Access\n                    "
                 )
               ])
             ]),
@@ -38963,7 +38964,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "checkbox3" } }, [
                 _vm._v(
-                  "\r\n                        Auto Updates\r\n                    "
+                  "\n                        Auto Updates\n                    "
                 )
               ])
             ]),
@@ -38975,7 +38976,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "checkbox4" } }, [
                 _vm._v(
-                  "\r\n                        Online Status\r\n                    "
+                  "\n                        Online Status\n                    "
                 )
               ])
             ]),
@@ -38987,7 +38988,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "checkbox5" } }, [
                 _vm._v(
-                  "\r\n                        Auto Payout\r\n                    "
+                  "\n                        Auto Payout\n                    "
                 )
               ])
             ])

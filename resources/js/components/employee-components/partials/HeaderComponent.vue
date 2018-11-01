@@ -145,19 +145,18 @@ import { logout } from "../../../helpers/auth.js";
 export default {
   methods: {
     logout() {
-    //   this.$store.commit("logout");
-    //   this.$router.push("/login");
-        const token = this.$store.getters.currentUser.token;
-        alert(token);
-        logout(token)
-          .then(res => {
-            console.log(res);
-            this.$store.commit("logout");
-            this.$router.push("/login");
-          })
-          .catch(error => {
-            rej("error");
-          });
+      //   this.$store.commit("logout");
+      //   this.$router.push("/login");
+      const token = this.$store.getters.currentUser.token;
+      logout(token)
+        .then(res => {
+          console.log(res);
+          this.$store.commit("logout");
+          this.$router.push("/login");
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };
