@@ -15,7 +15,7 @@ import {
     routes
 } from "./routes";
 import MainApp from "./components/MainApp.vue";
-import Axios from "axios";
+import {initialize} from "./helpers/general";
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -27,25 +27,7 @@ const router = new VueRouter({
     mode: "history"
 });
 
-router.beforeEach((to, from, next) => {
-    const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-    const currentUser = store.state.currentUser;
-
-    if (requiresAuth && !currentUser) {
-        next("/login");
-    } else if (to.path == "/login" && currentUser) {
-        next("/employee/dashboard");
-    } else {
-        next();
-    }
-});
-
-// axios.interceptors.response.use(null, (error) => {
-//     if (error.response.status == 401) {
-//         store.commit('logout');
-//         router.push('/login');
-//     }
-// })
+initialize(store, router);
 
 const app = new Vue({
     el: "#app",

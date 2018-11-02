@@ -94,7 +94,7 @@
                         </a>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" @click="logout" class="dropdown-item notify-item">
+                        <a href="javascript:void(0);" @click="logoutme" class="dropdown-item notify-item">
                             <i class="dripicons-power"></i> <span>Logout</span>
                         </a>
 
@@ -144,7 +144,7 @@
 import { logout } from "../../../helpers/auth.js";
 export default {
   methods: {
-    logout() {
+    logoutme() {
       //   this.$store.commit("logout");
       //   this.$router.push("/login");
       const token = this.$store.getters.currentUser.token;

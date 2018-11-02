@@ -72,6 +72,7 @@
 
 <script>
 import { login } from "../helpers/auth.js";
+import {setAuthorization} from './../helpers/general.js'
 // import { userData } from "../helpers/auth.js";
 
 export default {
@@ -92,6 +93,7 @@ export default {
       login(this.$data.form)
         .then(res => {
           this.$store.commit("loginSuccess", res);
+          setAuthorization(this.$store.getters.currentUser.token);
           this.$router.push({ path: "/employee/dashboard" });
         })
         .catch(error => {

@@ -636,12 +636,7 @@ function logout(token) {
     //alert(token);
 
     return new Promise(function (res, rej) {
-        axios.post('/api/auth/employee/logout', {
-            headers: {
-                "Authorization": "Bearer " + token
-            }
-        }).then(function (response) {
-            alert('ok');
+        axios.post("/api/auth/employee/logout").then(function (response) {
             res(response.data);
         }).catch(function (err) {
             rej('error');
@@ -1448,7 +1443,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(79);
+module.exports = __webpack_require__(80);
 
 
 /***/ }),
@@ -1463,8 +1458,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_MainApp_vue__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_MainApp_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_MainApp_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_axios__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__helpers_general__ = __webpack_require__(79);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -1492,27 +1486,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
     mode: "history"
 });
 
-router.beforeEach(function (to, from, next) {
-    var requiresAuth = to.matched.some(function (record) {
-        return record.meta.requiresAuth;
-    });
-    var currentUser = store.state.currentUser;
-
-    if (requiresAuth && !currentUser) {
-        next("/login");
-    } else if (to.path == "/login" && currentUser) {
-        next("/employee/dashboard");
-    } else {
-        next();
-    }
-});
-
-// axios.interceptors.response.use(null, (error) => {
-//     if (error.response.status == 401) {
-//         store.commit('logout');
-//         router.push('/login');
-//     }
-// })
+Object(__WEBPACK_IMPORTED_MODULE_5__helpers_general__["a" /* initialize */])(store, router);
 
 var app = new Vue({
     el: "#app",
@@ -37201,6 +37175,7 @@ module.exports = function listToStyles (parentId, list) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_auth_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_general_js__ = __webpack_require__(79);
 //
 //
 //
@@ -37273,6 +37248,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 // import { userData } from "../helpers/auth.js";
@@ -37297,6 +37273,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       Object(__WEBPACK_IMPORTED_MODULE_0__helpers_auth_js__["b" /* login */])(this.$data.form).then(function (res) {
         _this.$store.commit("loginSuccess", res);
+        Object(__WEBPACK_IMPORTED_MODULE_1__helpers_general_js__["b" /* setAuthorization */])(_this.$store.getters.currentUser.token);
         _this.$router.push({ path: "/employee/dashboard" });
       }).catch(function (error) {
         _this.$store.commit("loginFailed", { error: error });
@@ -37859,7 +37836,7 @@ exports = module.exports = __webpack_require__(5)(false);
 exports.push([module.i, "@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css);", ""]);
 
 // module
-exports.push([module.i, "\n.page-wrapper .container-fluid.main-container {\r\n  padding: 20px;\r\n  min-height: calc(100vh - 180px);\n}\r\n", ""]);
+exports.push([module.i, "\n.page-wrapper .container-fluid.main-container {\n  padding: 20px;\n  min-height: calc(100vh - 180px);\n}\n", ""]);
 
 // exports
 
@@ -38120,7 +38097,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
-    logout: function logout() {
+    logoutme: function logoutme() {
       var _this = this;
 
       //   this.$store.commit("logout");
@@ -38284,7 +38261,7 @@ var render = function() {
                   {
                     staticClass: "dropdown-item notify-item",
                     attrs: { href: "javascript:void(0);" },
-                    on: { click: _vm.logout }
+                    on: { click: _vm.logoutme }
                   },
                   [
                     _c("i", { staticClass: "dripicons-power" }),
@@ -38702,7 +38679,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n#sidebar-menu > ul > li > a.router-link-active[data-v-5cde9649] {\n  color: #188ae2;\n  background-color: #f8f9fa;\n  border-right-color: #188ae2;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n}\n", ""]);
+exports.push([module.i, "\n#sidebar-menu > ul > li > a.router-link-active[data-v-5cde9649] {\r\n  color: #188ae2;\r\n  background-color: #f8f9fa;\r\n  border-right-color: #188ae2;\r\n  -webkit-transition: all 0.3s ease;\r\n  transition: all 0.3s ease;\n}\r\n", ""]);
 
 // exports
 
@@ -38882,7 +38859,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-12 text-center" }, [
-              _vm._v("\n                    2018 © HRMS\n                ")
+              _vm._v("\r\n                    2018 © HRMS\r\n                ")
             ])
           ])
         ])
@@ -38942,7 +38919,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "checkbox1" } }, [
                 _vm._v(
-                  "\n                        Notifications\n                    "
+                  "\r\n                        Notifications\r\n                    "
                 )
               ])
             ]),
@@ -38954,7 +38931,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "checkbox2" } }, [
                 _vm._v(
-                  "\n                        API Access\n                    "
+                  "\r\n                        API Access\r\n                    "
                 )
               ])
             ]),
@@ -38964,7 +38941,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "checkbox3" } }, [
                 _vm._v(
-                  "\n                        Auto Updates\n                    "
+                  "\r\n                        Auto Updates\r\n                    "
                 )
               ])
             ]),
@@ -38976,7 +38953,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "checkbox4" } }, [
                 _vm._v(
-                  "\n                        Online Status\n                    "
+                  "\r\n                        Online Status\r\n                    "
                 )
               ])
             ]),
@@ -38988,7 +38965,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("label", { attrs: { for: "checkbox5" } }, [
                 _vm._v(
-                  "\n                        Auto Payout\n                    "
+                  "\r\n                        Auto Payout\r\n                    "
                 )
               ])
             ])
@@ -39480,6 +39457,48 @@ if (false) {
 
 /***/ }),
 /* 79 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = initialize;
+/* harmony export (immutable) */ __webpack_exports__["b"] = setAuthorization;
+
+
+function initialize(store, router) {
+    router.beforeEach(function (to, from, next) {
+        var requiresAuth = to.matched.some(function (record) {
+            return record.meta.requiresAuth;
+        });
+        var currentUser = store.state.currentUser;
+
+        if (requiresAuth && !currentUser) {
+            next("/login");
+        } else if (to.path == "/login" && currentUser) {
+            next("/employee/dashboard");
+        } else {
+            next();
+        }
+    });
+
+    // axios.interceptors.response.use(null, (error) => {
+    //     if (error.response.status == 401) {
+    //         store.commit('logout');
+    //         router.push('/login');
+    //     }
+    // })
+
+
+    if (store.getters.currentUser) {
+        setAuthorization(store.getters.currentUser.token);
+    }
+}
+
+function setAuthorization(token) {
+    axios.defaults.headers.common['Authorization'] = "Bearer " + token;
+}
+
+/***/ }),
+/* 80 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -16,13 +16,8 @@ export function logout(token) {
 
     return new Promise((res, rej) => {
         axios
-            .post('/api/auth/employee/logout', {
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            })
+            .post("/api/auth/employee/logout")
             .then(response => {
-                alert('ok');
                 res(response.data);
             })
             .catch(err => {
