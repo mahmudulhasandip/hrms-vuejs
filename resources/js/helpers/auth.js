@@ -11,7 +11,7 @@ export function login(credentials) {
     });
 }
 
-export function logout(token) {
+export function logout() {
     //alert(token);
 
     return new Promise((res, rej) => {

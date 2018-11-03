@@ -11,6 +11,10 @@
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
                         <li class="breadcrumb-item active">Starter</li>
                     </ol> -->
+                    <div class="pt-2 float-right">
+                        <label for="attendance_switch">{{ checkedBoxLable }} </label>
+                        <input class="" id="attendance_switch" type="checkbox" v-model="checked" @change="onChange" data-plugin="switchery" data-color="#1bb99a" data-secondary-color="#ff5d48" />
+                    </div>
                     <h4 class="page-title">Starter</h4>
                 </div>
                 <!-- End page title box -->
@@ -54,6 +58,8 @@
                             </router-link>
                         </div>
                     </div>
+
+
                 </div>
 
             </div> <!-- end container-fluid-->
@@ -61,3 +67,36 @@
     </div>
     <!-- End Page Content-->
 </template>
+
+<script>
+import Switchery from "./../../../../public/assets/libs/mohithg-switchery/switchery.min.js";
+export default {
+  data() {
+    return {
+      checked: false,
+      checkedBoxLable: ""
+    };
+  },
+  methods: {
+    onChange() {
+      this.$emit("attendance_switch", this.checked);
+      if (this.checked) {
+        this.checkedBoxLable = "I'm in!!";
+      } else {
+        this.checkedBoxLable = "I'm out!!";
+      }
+    }
+  },
+  mounted() {
+    if (this.checked) {
+      this.checkedBoxLable = "I'm in!! ";
+    } else {
+      this.checkedBoxLable = "I'm out!! ";
+    }
+    $('[data-plugin="switchery"]').each(function(idx, obj) {
+      new Switchery($(this)[0], $(this).data());
+    });
+  }
+};
+</script>
+

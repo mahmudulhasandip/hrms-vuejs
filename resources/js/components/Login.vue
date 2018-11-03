@@ -72,7 +72,7 @@
 
 <script>
 import { login } from "../helpers/auth.js";
-import {setAuthorization} from './../helpers/general.js'
+import { setAuthorization } from "./../helpers/general.js";
 // import { userData } from "../helpers/auth.js";
 
 export default {

@@ -147,8 +147,8 @@ export default {
     logoutme() {
       //   this.$store.commit("logout");
       //   this.$router.push("/login");
-      const token = this.$store.getters.currentUser.token;
-      logout(token)
+      //   const token = this.$store.getters.currentUser.token;
+      logout()
         .then(res => {
           console.log(res);
           this.$store.commit("logout");

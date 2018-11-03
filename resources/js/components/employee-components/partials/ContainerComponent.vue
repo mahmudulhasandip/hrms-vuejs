@@ -31,26 +31,32 @@ export default {
     "app-footer": FooterComponent
   },
   mounted() {
-    const plugin = document.createElement("script");
-    plugin.setAttribute(
+    //
+    const switchery = document.createElement("script");
+    switchery.setAttribute(
       "src",
-      "http://localhost:8000/assets/js/jquery.core.js"
+      "/assets/libs/mohithg-switchery/switchery.min.js"
     );
-    plugin.async = true;
-    document.body.appendChild(plugin);
-    const plugin2 = document.createElement("script");
-    plugin2.setAttribute(
-      "src",
-      "http://localhost:8000/assets/js/jquery.app.js"
-    );
-    plugin2.async = true;
-    document.body.appendChild(plugin2);
+    switchery.async = true;
+    document.body.appendChild(switchery);
+    //
+    const jqueryCore = document.createElement("script");
+    jqueryCore.setAttribute("src", "/assets/js/jquery.core.js");
+    jqueryCore.async = true;
+    document.body.appendChild(jqueryCore);
+    //
+    const jqueryApp = document.createElement("script");
+    jqueryApp.setAttribute("src", "/assets/js/jquery.app.js");
+    jqueryApp.async = true;
+    document.body.appendChild(jqueryApp);
   }
 };
 </script>
 
 <style>
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css");
+@import url("/assets/libs/mohithg-switchery/switchery.min.css");
+
 .page-wrapper .container-fluid.main-container {
   padding: 20px;
   min-height: calc(100vh - 180px);
