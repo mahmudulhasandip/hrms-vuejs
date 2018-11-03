@@ -10,7 +10,8 @@ export default {
         isLoggedIn: !!user,
         loading: false,
         auth_error: null,
-        employees: []
+        employees: [],
+        attandence: null
     },
     getters: {
         isLoading(state) {
@@ -27,6 +28,9 @@ export default {
         },
         employees(state) {
             return state.employees;
+        },
+        attandence(state){
+            return state.attandence;
         }
     },
     mutations: {
@@ -51,11 +55,25 @@ export default {
             localStorage.removeItem("user");
             state.isLoggedIn = false;
             state.currentUser = null;
-        }
+        },
+
     },
     actions: {
         login(context) {
             context.commit("login");
+        },
+
+        getAttendance(context){
+            let date = new Date();
+            // date = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+            axios.get(`/api/employee/attendance/${date}` )
+                .then(response => {
+                    console.log(response.data['attendance']);
+
+                })
+                .catch(err => {
+                    console.log(err.data);
+                })
         }
     }
 };

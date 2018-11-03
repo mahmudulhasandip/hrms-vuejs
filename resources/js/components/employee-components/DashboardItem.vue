@@ -88,6 +88,10 @@ export default {
     }
   },
   mounted() {
+      let date = new Date();
+      date = `${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
+
+      this.$store.dispatch('getAttendance');
     if (this.checked) {
       this.checkedBoxLable = "I'm in!! ";
     } else {

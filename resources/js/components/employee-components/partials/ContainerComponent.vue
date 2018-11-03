@@ -32,13 +32,13 @@ export default {
   },
   mounted() {
     //
-    const switchery = document.createElement("script");
-    switchery.setAttribute(
-      "src",
-      "/assets/libs/mohithg-switchery/switchery.min.js"
-    );
-    switchery.async = true;
-    document.body.appendChild(switchery);
+    // const switchery = document.createElement("script");
+    // switchery.setAttribute(
+    //   "src",
+    //   "/assets/libs/mohithg-switchery/switchery.min.js"
+    // );
+    // switchery.async = true;
+    // document.body.appendChild(switchery);
     //
     const jqueryCore = document.createElement("script");
     jqueryCore.setAttribute("src", "/assets/js/jquery.core.js");
