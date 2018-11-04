@@ -15,8 +15,8 @@ class CreateOfficeTimesTable extends Migration
     {
         Schema::create('office_times', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('in_time');
-            $table->date('out_time');
+            $table->time('in_time');
+            $table->time('out_time');
             $table->timestamps();
         });
     }

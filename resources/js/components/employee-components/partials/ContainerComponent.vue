@@ -49,6 +49,7 @@ export default {
     jqueryApp.setAttribute("src", "/assets/js/jquery.app.js");
     jqueryApp.async = true;
     document.body.appendChild(jqueryApp);
+    // this.$store.dispatch("present");
   }
 };
 </script>

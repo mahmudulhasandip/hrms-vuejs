@@ -11,7 +11,8 @@ export default {
         loading: false,
         auth_error: null,
         employees: [],
-        attandence: null
+        attandence: null,
+        is_present: false
     },
     getters: {
         isLoading(state) {
@@ -29,8 +30,11 @@ export default {
         employees(state) {
             return state.employees;
         },
-        attandence(state){
+        attandence(state) {
             return state.attandence;
+        },
+        isPresent(state) {
+            return state.is_present;
         }
     },
     mutations: {
@@ -56,6 +60,9 @@ export default {
             state.isLoggedIn = false;
             state.currentUser = null;
         },
+        isPresent(state, payload) {
+            state.is_present = payload;
+        }
 
     },
     actions: {
@@ -63,13 +70,13 @@ export default {
             context.commit("login");
         },
 
-        getAttendance(context){
+        present(context, state) {
             let date = new Date();
             // date = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-            axios.get(`/api/employee/attendance/${date}` )
+            axios.get(`/api/employee/attendance/${date}`)
                 .then(response => {
-                    console.log(response.data['attendance']);
-
+                    // console.log(response.data['present']);
+                    context.commit('isPresent', response.data['present']);
                 })
                 .catch(err => {
                     console.log(err.data);

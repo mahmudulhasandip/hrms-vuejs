@@ -30,9 +30,18 @@ class AttendanceController extends Controller
         // $time = $request->input('date');
         // return response()->json(['attendance' => $date]);
         $date = date('d-m-Y', strtotime($date));
-        $attendance = Attendance::where('employee_id',auth('api')->user()->id)->where('created_at','>=', date('Y-m-d').' 00:00:00')->first();
-        $attendanceDate = date('d-m-Y', strtotime($attendance->created_at));
-        return response()->json(['attendance' => $attendanceDate ]);
+        $attendance = Attendance::where('employee_id', auth('api')->user()->id)->where('created_at','>=', date('Y-m-d').' 00:00:00')->first();
+        if($attendance){
+            if(!$attendance->out_time){
+                $present = true;
+            }else{
+                $present = false;
+            }
+        }
+
+        return response()->json([
+            'present' => $present
+        ]);
     }
 
     public function guard(){
