@@ -104,22 +104,22 @@ export default {
 
     async function getPresent(date, store, checked) {
         try{
-         await axios.get(`/api/employee/attendance/${date}`)
-                    .then(response => {
+            await axios.get(`/api/employee/attendance/${date}`)
+                        .then(response => {
 
-                        store.commit("isPresent", response.data['present']);
-                        checked = store.state.is_present;
-                        $('[data-plugin="switchery"]').each(function(idx, obj) {
-                            new Switchery($(this)[0], $(this).data());
+                            store.commit("isPresent", response.data['present']);
+                            checked = store.state.is_present;
+                            $('[data-plugin="switchery"]').each(function(idx, obj) {
+                                new Switchery($(this)[0], $(this).data());
+                            });
+                            if(response.data['present']){
+                                $('.switchery').click();
+                            }
+
+                        })
+                        .catch(err => {
+                            console.log(err);
                         });
-                        if(response.data['present']){
-                            $('.switchery').click();
-                        }
-
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
         }catch(err){
             console.log(err);
 
