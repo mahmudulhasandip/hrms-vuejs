@@ -1,6 +1,4 @@
-
-
-export function initialize(store, router){
+export function initialize(store, router) {
     router.beforeEach((to, from, next) => {
         const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
         const currentUser = store.state.currentUser;
@@ -13,6 +11,13 @@ export function initialize(store, router){
             next();
         }
     });
+    // router.beforeEach((to, from, next) => {
+    //     if (to.path == '/employee/dashboard') {
+    //         if (store.dispatch("present")) {
+    //             next();
+    //         }
+    //     }
+    // });
 
     // axios.interceptors.response.use(null, (error) => {
     //     if (error.response.status == 401) {
@@ -22,11 +27,11 @@ export function initialize(store, router){
     // })
 
 
-    if(store.getters.currentUser){
+    if (store.getters.currentUser) {
         setAuthorization(store.getters.currentUser.token);
     }
 }
 
-export function setAuthorization(token){
+export function setAuthorization(token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 }

@@ -1439,8 +1439,6 @@ module.exports = Cancel;
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = initialize;
 /* harmony export (immutable) */ __webpack_exports__["b"] = setAuthorization;
-
-
 function initialize(store, router) {
     router.beforeEach(function (to, from, next) {
         var requiresAuth = to.matched.some(function (record) {
@@ -1456,6 +1454,13 @@ function initialize(store, router) {
             next();
         }
     });
+    // router.beforeEach((to, from, next) => {
+    //     if (to.path == '/employee/dashboard') {
+    //         if (store.dispatch("present")) {
+    //             next();
+    //         }
+    //     }
+    // });
 
     // axios.interceptors.response.use(null, (error) => {
     //     if (error.response.status == 401) {
@@ -39286,9 +39291,9 @@ var __vue_template__ = __webpack_require__(80)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
-var __vue_scopeId__ = "data-v-d311611c"
+var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
