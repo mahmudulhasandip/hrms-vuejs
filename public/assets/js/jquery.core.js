@@ -98,7 +98,7 @@ File: Core components js
                 this.initSlimScrollPlugin(),
                 this.initCustomModalPlugin(),
                 this.initRangeSlider(),
-                this.initSwitchery(),
+                // this.initSwitchery(),
                 this.initKnob(),
                 this.initCounterUp()
         },

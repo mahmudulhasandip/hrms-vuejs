@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
             RolesTableSeeder::class,
             EmployeesTableSeeder::class,
             AdminsTableSeeder::class,
-            OfficeTimesSeeder::class
+            OfficeTimesSeeder::class,
+            AttendanceSeeder::class
         ]);
     }
 }

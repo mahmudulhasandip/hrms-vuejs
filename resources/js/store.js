@@ -59,6 +59,7 @@ export default {
             localStorage.removeItem("user");
             state.isLoggedIn = false;
             state.currentUser = null;
+            state.is_present = false;
         },
         isPresent(state, payload) {
             state.is_present = payload;
@@ -68,19 +69,6 @@ export default {
     actions: {
         login(context) {
             context.commit("login");
-        },
-
-        present(context, state) {
-            let date = new Date();
-            // date = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-            axios.get(`/api/employee/attendance/${date}`)
-                .then(response => {
-                    // console.log(response.data['present']);
-                    context.commit('isPresent', response.data['present']);
-                })
-                .catch(err => {
-                    console.log(err.data);
-                })
         }
     }
 };

@@ -27,8 +27,6 @@ class AttendanceController extends Controller
     }
 
     public function takeAttendance($date){
-        // $time = $request->input('date');
-        // return response()->json(['attendance' => $date]);
         $date = date('d-m-Y', strtotime($date));
         $attendance = Attendance::where('employee_id', auth('api')->user()->id)->where('created_at','>=', date('Y-m-d').' 00:00:00')->first();
         if($attendance){
@@ -37,11 +35,15 @@ class AttendanceController extends Controller
             }else{
                 $present = false;
             }
+            return response()->json([
+                'present' => $present
+            ]);
+        }else{
+            $attendance = new Attendance();
+            return response()->json([
+                'present' => false
+            ]);
         }
-
-        return response()->json([
-            'present' => $present
-        ]);
     }
 
     public function guard(){
