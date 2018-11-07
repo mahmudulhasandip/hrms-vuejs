@@ -87,43 +87,37 @@ export default {
       this.$emit("attendance_switch", this.checked);
       if (this.checked) {
         this.checkedBoxLable = "I'm in ";
-        this.$store.commit('isPresent', true);
-
+        this.$store.commit("isPresent", true);
       } else {
         this.checkedBoxLable = "I'm out";
-        this.$store.commit('isPresent', false);
+        this.$store.commit("isPresent", false);
       }
     }
   },
-  created() {
-
-  },
+  created() {},
   mounted() {
-
     let date = new Date();
 
     async function getPresent(date, store, checked) {
-        try{
-            await axios.get(`/api/employee/attendance/${date}`)
-                        .then(response => {
-
-                            store.commit("isPresent", response.data['present']);
-                            checked = store.state.is_present;
-                            $('[data-plugin="switchery"]').each(function(idx, obj) {
-                                new Switchery($(this)[0], $(this).data());
-                            });
-                            if(response.data['present']){
-                                $('.switchery').click();
-                            }
-
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        });
-        }catch(err){
+      try {
+        await axios
+          .get(`/api/employee/attendance/${date}`)
+          .then(response => {
+            store.commit("isPresent", response.data["present"]);
+            checked = store.state.is_present;
+            $('[data-plugin="switchery"]').each(function(idx, obj) {
+              new Switchery($(this)[0], $(this).data());
+            });
+            if (response.data["present"]) {
+              $(".switchery").click();
+            }
+          })
+          .catch(err => {
             console.log(err);
-
-        }
+          });
+      } catch (err) {
+        console.log(err);
+      }
     }
     getPresent(date, this.$store, this.checked);
 
