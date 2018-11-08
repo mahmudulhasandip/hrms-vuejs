@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/checkintime', 'EmployeeController\AttendanceController@checkInTime');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

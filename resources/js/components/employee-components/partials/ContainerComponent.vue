@@ -57,6 +57,7 @@ export default {
 <style>
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css");
 @import url("/assets/libs/mohithg-switchery/switchery.min.css");
+@import url("/assets/libs/jquery-toast-plugin/jquery.toast.min.css");
 
 .page-wrapper .container-fluid.main-container {
   padding: 20px;

@@ -5,17 +5,15 @@
  */
 
 require("./bootstrap");
-
+window.$ = window.jQuery = require("jquery");
 window.Vue = require("vue");
 // import Vue from "vue";
 import VueRouter from "vue-router";
 import Vuex from "vuex";
 import StoreData from "./store";
-import {
-    routes
-} from "./routes";
+import { routes } from "./routes";
 import MainApp from "./components/MainApp.vue";
-import {initialize} from "./helpers/general";
+import { initialize } from "./helpers/general";
 
 Vue.use(VueRouter);
 Vue.use(Vuex);

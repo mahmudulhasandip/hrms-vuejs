@@ -63,6 +63,7 @@
                             </router-link>
                         </div>
                     </div>
+<button type="button" class="btn btn-success waves-effect waves-light btn-sm" id="toastr-three">Click me</button>
 
 
                 </div>
@@ -87,7 +88,8 @@ export default {
       this.$emit("attendance_switch", this.checked);
       if (this.checked) {
         this.checkedBoxLable = "I'm in ";
-        this.$store.commit("isPresent", true);
+        this.$store.dispatch("entryTime");
+        // this.$store.commit("isPresent", true);
       } else {
         this.checkedBoxLable = "I'm out";
         this.$store.commit("isPresent", false);
@@ -96,6 +98,43 @@ export default {
   },
   created() {},
   mounted() {
+    //   import toast js
+    const toast = document.createElement("script");
+    toast.setAttribute(
+      "src",
+      "/assets/libs/jquery-toast-plugin/jquery.toast.min.js"
+    );
+    toast.async = true;
+    document.body.appendChild(toast);
+
+    const toastr = document.createElement("script");
+    toastr.setAttribute(
+      "src",
+      "/assets/libs/jquery-toast-plugin/jquery.toast.min.js"
+    );
+    toastr.async = true;
+    document.body.appendChild(toastr);
+
+    // $("#toastr-three").on("click", function(e) {
+    //   $.NotificationApp.send(
+    //     "Well Done!",
+    //     "You successfully read this important alert message",
+    //     "top-right",
+    //     "#5ba035",
+    //     "success"
+    //   );
+    // });
+
+    // $.toast({
+    //   heading: "Information",
+    //   text:
+    //     "Loaders are enabled by default. Use `loader`, `loaderBg` to change the default behavior",
+    //   icon: "info",
+    //   loader: true, // Change it to false to disable loader
+    //   loaderBg: "#9EC600" // To change the background
+    // });
+
+    // entryTime for attendance
     let date = new Date();
 
     async function getPresent(date, store, checked) {

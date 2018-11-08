@@ -11,13 +11,6 @@ export function initialize(store, router) {
             next();
         }
     });
-    // router.beforeEach((to, from, next) => {
-    //     if (to.path == '/employee/dashboard') {
-    //         if (store.dispatch("present")) {
-    //             next();
-    //         }
-    //     }
-    // });
 
     // axios.interceptors.response.use(null, (error) => {
     //     if (error.response.status == 401) {

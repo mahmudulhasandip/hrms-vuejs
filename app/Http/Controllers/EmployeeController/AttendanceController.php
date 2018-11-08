@@ -11,6 +11,7 @@ use JWTAuth;
 use JWTAuthException;
 
 use App\Attendance;
+use App\Office_time;
 
 class AttendanceController extends Controller
 {
@@ -44,6 +45,26 @@ class AttendanceController extends Controller
                 'present' => false
             ]);
         }
+    }
+
+    public function timeEntry() {
+        $time = new \DateTime('now', new \DateTimezone('Asia/Dhaka'));
+
+        $attendance = Attendance::where('employee_id', auth('api')->user()->id)->where('created_at','>=', date('Y-m-d').' 00:00:00')->first();
+        $office_time = Office_time::findOrFail(1);
+        if(!$attendance){
+            $attendance = new Attendance();
+            $attendance->employee_id = auth('api')->user()->id;
+            $attendance->in_time = $time->format('g:i:s');
+            if($time->format('g:i:s') > $office_time->in_time){
+                $attendance->is_late = 1;
+            }
+            $attendance->save();
+            return response()->json([ 'success' => 'You are in. Time inserted']);
+
+
+        }
+        return $attendance;
     }
 
     public function guard(){

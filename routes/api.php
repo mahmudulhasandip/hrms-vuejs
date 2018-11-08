@@ -40,4 +40,5 @@ Route::group([
 Route::group(['middleware' => 'jwt.auth', 'prefix' => '/employee'], function($router){
     // attendance
     Route::get('attendance/{date}', 'EmployeeController\AttendanceController@takeAttendance');
+    Route::post('attendance/time_entry', 'EmployeeController\AttendanceController@timeEntry');
 });

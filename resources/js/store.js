@@ -1,6 +1,5 @@
-import {
-    getLocalUser
-} from "./helpers/auth";
+import { getLocalUser } from "./helpers/auth";
+import Axios from "axios";
 
 const user = getLocalUser();
 
@@ -64,11 +63,19 @@ export default {
         isPresent(state, payload) {
             state.is_present = payload;
         }
-
     },
     actions: {
         login(context) {
             context.commit("login");
+        },
+        entryTime(context) {
+            Axios.post("/api/employee/attendance/time_entry")
+                .then(response => {
+                    context.commit("isPresent", true);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         }
     }
 };
