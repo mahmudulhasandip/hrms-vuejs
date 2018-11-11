@@ -76,6 +76,8 @@
 
 <script>
 import Switchery from "./../../../../public/assets/libs/mohithg-switchery/switchery.min.js";
+import * as toast from "./../../../../public/assets/libs/jquery-toast-plugin/jquery.toast.min.js";
+import * as toastr from "./../../../../public/assets/js/jquery.toastr.js";
 export default {
   data() {
     return {
@@ -108,31 +110,28 @@ export default {
     document.body.appendChild(toast);
 
     const toastr = document.createElement("script");
-    toastr.setAttribute(
-      "src",
-      "/assets/libs/jquery-toast-plugin/jquery.toast.min.js"
-    );
+    toastr.setAttribute("src", "/assets/js/jquery.toastr.js");
     toastr.async = true;
     document.body.appendChild(toastr);
 
-    // $("#toastr-three").on("click", function(e) {
-    //   $.NotificationApp.send(
-    //     "Well Done!",
-    //     "You successfully read this important alert message",
-    //     "top-right",
-    //     "#5ba035",
-    //     "success"
-    //   );
-    // });
+    $("#toastr-three").on("click", function(e) {
+      $.NotificationApp.send(
+        "Well Done!",
+        "You successfully read this important alert message",
+        "top-right",
+        "#5ba035",
+        "success"
+      );
+    });
 
-    // $.toast({
-    //   heading: "Information",
-    //   text:
-    //     "Loaders are enabled by default. Use `loader`, `loaderBg` to change the default behavior",
-    //   icon: "info",
-    //   loader: true, // Change it to false to disable loader
-    //   loaderBg: "#9EC600" // To change the background
-    // });
+    $.toast({
+      heading: "Information",
+      text:
+        "Loaders are enabled by default. Use `loader`, `loaderBg` to change the default behavior",
+      icon: "info",
+      loader: true, // Change it to false to disable loader
+      loaderBg: "#9EC600" // To change the background
+    });
 
     // entryTime for attendance
     let date = new Date();

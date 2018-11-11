@@ -49,6 +49,11 @@ export default {
     jqueryApp.setAttribute("src", "/assets/js/jquery.app.js");
     jqueryApp.async = true;
     document.body.appendChild(jqueryApp);
+
+    const mainApp = document.createElement("script");
+    mainApp.setAttribute("src", "/js/app.js");
+    mainApp.async = true;
+    document.body.appendChild(mainApp);
     // this.$store.dispatch("present");
   }
 };

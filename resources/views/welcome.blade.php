@@ -55,7 +55,7 @@
         </div>
 
         <!--This page JavaScript -->
-        <script src="{{ asset('/js/app.js') }}"></script>
+
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
@@ -65,6 +65,7 @@
         <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('assets/libs/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
         <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
+        <script src="{{ asset('/js/app.js') }}"></script>
 
 
     </body>
