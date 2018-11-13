@@ -30,6 +30,9 @@ export default {
     "app-sidebar": SidebarComponent,
     "app-footer": FooterComponent
   },
+  created() {
+    console.log(_.isEmpty() ? "Lodash everywhere!" : "Uh oh..");
+  },
   mounted() {
     //
     // const switchery = document.createElement("script");
@@ -40,20 +43,19 @@ export default {
     // switchery.async = true;
     // document.body.appendChild(switchery);
     //
-    const jqueryCore = document.createElement("script");
-    jqueryCore.setAttribute("src", "/assets/js/jquery.core.js");
-    jqueryCore.async = true;
-    document.body.appendChild(jqueryCore);
-    //
-    const jqueryApp = document.createElement("script");
-    jqueryApp.setAttribute("src", "/assets/js/jquery.app.js");
-    jqueryApp.async = true;
-    document.body.appendChild(jqueryApp);
-
-    const mainApp = document.createElement("script");
-    mainApp.setAttribute("src", "/js/app.js");
-    mainApp.async = true;
-    document.body.appendChild(mainApp);
+    // const jqueryCore = document.createElement("script");
+    // jqueryCore.setAttribute("src", "/assets/js/jquery.core.js");
+    // jqueryCore.async = true;
+    // document.body.appendChild(jqueryCore);
+    // //
+    // const jqueryApp = document.createElement("script");
+    // jqueryApp.setAttribute("src", "/assets/js/jquery.app.js");
+    // jqueryApp.async = true;
+    // document.body.appendChild(jqueryApp);
+    // const mainApp = document.createElement("script");
+    // mainApp.setAttribute("src", "/js/app.js");
+    // mainApp.async = true;
+    // document.body.appendChild(mainApp);
     // this.$store.dispatch("present");
   }
 };
