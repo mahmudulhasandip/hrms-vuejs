@@ -74,6 +74,7 @@
 
 <script>
 import Switchery from "./../../../../public/assets/libs/mohithg-switchery/switchery.min.js";
+import moment from "moment";
 
 export default {
   data() {
@@ -89,46 +90,74 @@ export default {
         if (this.$store.state.entry_trigger) {
           this.checkedBoxLable = "I'm in ";
           this.$store.dispatch("entryTime");
-          $.NotificationApp.send(
-            "Welcome to the office!",
-            "Your Entry time successfully inserted",
-            "top-right",
-            "#5ba035",
-            "success"
+          swal({
+            title: "Welcome to the office!",
+            text: "Your entry time successfully inserted.",
+            timer: 3000,
+            confirmButtonClass: "btn btn-confirm mt-2",
+            type: "success",
+            showConfirmButton: false
+          }).then(
+            function() {},
+            // handling the promise rejection
+            function(dismiss) {
+              if (dismiss === "timer") {
+                console.log("Entry time inserted. (swal)");
+              }
+            }
           );
+          this.$store.state.entry_trigger = false;
         }
 
         // this.$store.commit("isPresent", true);
       } else {
         this.checkedBoxLable = "I'm out";
-        this.$store.commit("isPresent", false);
+        // this.$store.dispatch("leaveTime");
+        if (
+          this.$store.getters.officeOutTime >
+          moment(String(new Date())).format("H:mm:ss")
+        ) {
+          this.$store.dispatch("leaveTime");
+          swal({
+            title: "You are leaving early!",
+            text: "Early leave counted!",
+            type: "warning"
+          }).then(function() {});
+        } else {
+          this.$store.dispatch("leaveTime");
+          swal({
+            title: "You are leaving!",
+            text: "Your leave time successfully inserted.",
+            timer: 3000,
+            confirmButtonClass: "btn btn-confirm mt-2",
+            type: "success",
+            showConfirmButton: false
+          }).then(
+            function() {},
+            function(dismiss) {
+              if (dismiss === "timer") {
+                console.log("Entry time inserted. (swal)");
+              }
+            }
+          );
+        }
       }
     }
   },
   created() {
+    //   get office time
+    this.$store.dispatch("officeTime");
+    // loading external plugins
     this.$scriptLoader.load(
       "/assets/libs/jquery-toast-plugin/jquery.toast.min.js"
     );
     this.$scriptLoader.load("/assets/js/jquery.toastr.js");
+    this.$scriptLoader.load("/assets/libs/sweetalert2/sweetalert2.min.js");
   },
   mounted() {
-    //   import toast js
-    // const toast = document.createElement("script");
-    // toast.setAttribute(
-    //   "src",
-    //   "/assets/libs/jquery-toast-plugin/jquery.toast.min.js"
-    // );
-    // toast.async = true;
-    // document.body.appendChild(toast);
-
-    // const toastr = document.createElement("script");
-    // toastr.setAttribute("src", "/assets/js/jquery.toastr.js");
-    // toastr.async = true;
-    // document.body.appendChild(toastr);
-
     // entryTime for attendance
     let date = new Date();
-
+    // alert(moment(String(date)).format("MM/DD/YYYY H:mm:ss"));
     async function getPresent(date, store, checked) {
       try {
         await axios
@@ -161,5 +190,10 @@ export default {
   }
 };
 </script>
+
+
+<style scoped>
+@import url("./../../../../public/assets/libs/sweetalert2/sweetalert2.min.css");
+</style>
 
 

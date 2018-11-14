@@ -9,8 +9,10 @@ export default {
         isLoggedIn: !!user,
         loading: false,
         auth_error: null,
-        employees: [],
+        // employees: [],
         attandence: null,
+        in_time: null,
+        out_time: null,
         is_present: false,
         entry_trigger: true
     },
@@ -32,6 +34,12 @@ export default {
         },
         attandence(state) {
             return state.attandence;
+        },
+        officeInTime(state) {
+            return state.in_time;
+        },
+        officeOutTime(state) {
+            return state.out_time;
         },
         isPresent(state) {
             return state.is_present;
@@ -68,11 +76,22 @@ export default {
             } else {
                 state.entry_trigger = true;
             }
+        },
+        setOfficeTime(state, payload) {
+            state.in_time = payload.in_time;
+            state.out_time = payload.out_time;
         }
     },
     actions: {
         login(context) {
             context.commit("login");
+        },
+
+        // office time
+        officeTime(context) {
+            Axios.get("/api/employee/office_time").then(response => {
+                context.commit("setOfficeTime", response.data.office_time);
+            });
         },
         // entry time
         entryTime(context) {
@@ -87,7 +106,7 @@ export default {
 
         // leave time
         leaveTime(context) {
-            Axios.post("/api/employee/attendace/time_entry").then(response => {
+            Axios.post("/api/employee/attendance/time_entry").then(response => {
                 context.commit("isPresent", false);
             });
         }

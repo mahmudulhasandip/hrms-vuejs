@@ -26,7 +26,13 @@ class AttendanceController extends Controller
         Config::set('jwt.user', "App\Employee");
         Config::set('auth.providers.users.model', \App\Employee::class);
     }
+    // office time
+    public function officeTime(){
+        $office_time = Office_time::findOrFail(1);
+        return response()->json(["office_time" => $office_time]);
+    }
 
+    // take attendance state
     public function takeAttendance($date){
         $date = date('d-m-Y', strtotime($date));
         $attendance = Attendance::where('employee_id', auth('api')->user()->id)->where('created_at','>=', date('Y-m-d').' 00:00:00')->first();
@@ -47,6 +53,7 @@ class AttendanceController extends Controller
         }
     }
 
+    // entry and leave time insert
     public function timeEntry() {
         $time = new \DateTime('now', new \DateTimezone('Asia/Dhaka'));
 
@@ -55,8 +62,8 @@ class AttendanceController extends Controller
         if(!$attendance){
             $attendance = new Attendance();
             $attendance->employee_id = auth('api')->user()->id;
-            $attendance->in_time = $time->format('g:i:s');
-            if($time->format('g:i:s') > $office_time->in_time){
+            $attendance->in_time = $time->format('H:i:s');
+            if($time->format('H:i:s') > $office_time->in_time){
                 $attendance->is_late = 1;
             }
             $attendance->save();
@@ -64,14 +71,14 @@ class AttendanceController extends Controller
 
 
         }else{
-            $attendance->out_time = $time-format('g:i:s');
-            if($time->format('g:i:s')< $office_time->out_time){
+            $attendance->out_time = $time->format('H:i:s');
+            if($time->format('H:i:s') < $office_time->out_time){
                 $attendance->is_early_leave = 1;
             }
             $attendance->save();
             return response()->json(['success'=>'You are out. Time inserted']);
         }
-        return $attendance;
+        return response()->json(['att' => $attendance]);
     }
 
     public function guard(){
