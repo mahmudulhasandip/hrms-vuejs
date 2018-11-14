@@ -11,7 +11,8 @@ export default {
         auth_error: null,
         employees: [],
         attandence: null,
-        is_present: false
+        is_present: false,
+        entry_trigger: true
     },
     getters: {
         isLoading(state) {
@@ -62,12 +63,18 @@ export default {
         },
         isPresent(state, payload) {
             state.is_present = payload;
+            if (state.is_present) {
+                state.entry_trigger = false;
+            } else {
+                state.entry_trigger = true;
+            }
         }
     },
     actions: {
         login(context) {
             context.commit("login");
         },
+        // entry time
         entryTime(context) {
             Axios.post("/api/employee/attendance/time_entry")
                 .then(response => {
@@ -76,6 +83,13 @@ export default {
                 .catch(err => {
                     console.log(err);
                 });
+        },
+
+        // leave time
+        leaveTime(context) {
+            Axios.post("/api/employee/attendace/time_entry").then(response => {
+                context.commit("isPresent", false);
+            });
         }
     }
 };

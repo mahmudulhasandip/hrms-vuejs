@@ -55,7 +55,8 @@ export default {
       this.$store.commit("logout");
       this.$router.push("/login");
     }
-  }
+  },
+  mounted() {}
 };
 </script>
 

@@ -63,6 +63,13 @@ class AttendanceController extends Controller
             return response()->json([ 'success' => 'You are in. Time inserted']);
 
 
+        }else{
+            $attendance->out_time = $time-format('g:i:s');
+            if($time->format('g:i:s')< $office_time->out_time){
+                $attendance->is_early_leave = 1;
+            }
+            $attendance->save();
+            return response()->json(['success'=>'You are out. Time inserted']);
         }
         return $attendance;
     }
