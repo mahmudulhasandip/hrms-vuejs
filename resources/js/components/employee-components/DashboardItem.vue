@@ -79,7 +79,7 @@ import moment from "moment";
 export default {
   data() {
     return {
-      checked: false,
+      checked: this.$store.state.is_present,
       checkedBoxLable: ""
     };
   },
@@ -145,48 +145,96 @@ export default {
     }
   },
   created() {
-    //   get office time
-    this.$store.dispatch("officeTime");
+
     // loading external plugins
     this.$scriptLoader.load(
       "/assets/libs/jquery-toast-plugin/jquery.toast.min.js"
     );
     this.$scriptLoader.load("/assets/js/jquery.toastr.js");
     this.$scriptLoader.load("/assets/libs/sweetalert2/sweetalert2.min.js");
+
+    if (this.$store.state.entry_trigger) {
+      // attendance state
+      let date = new Date();
+      axios
+        .get(`/api/employee/attendance/${date}`)
+        .then(response => {
+          this.$store.commit("isPresent", response.data["present"]);
+          this.checked = this.$store.state.is_present;
+          if (this.checked) {
+            this.checkedBoxLable = "I'm in ";
+          } else {
+            this.checkedBoxLable = "I'm out";
+          }
+          $('[data-plugin="switchery"]').each(function(idx, obj) {
+            new Switchery($(this)[0], $(this).data());
+          });
+          if (response.data["present"]) {
+            this.$store.state.entry_trigger = false;
+            $(".switchery").click();
+            this.checkedBoxLable = "I'm in ";
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      let date = new Date();
+      axios
+        .get(`/api/employee/attendance/${date}`)
+        .then(response => {
+          this.$store.commit("isPresent", response.data["present"]);
+          this.checked = this.$store.state.is_present;
+          if (this.checked) {
+            this.checkedBoxLable = "I'm in ";
+          } else {
+            this.checkedBoxLable = "I'm out";
+          }
+          $('[data-plugin="switchery"]').each(function(idx, obj) {
+            new Switchery($(this)[0], $(this).data());
+          });
+          if (response.data["present"]) {
+            this.$store.state.entry_trigger = false;
+            // $(".switchery").click();
+            this.checkedBoxLable = "I'm in ";
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   },
   mounted() {
     // entryTime for attendance
-    let date = new Date();
-    // alert(moment(String(date)).format("MM/DD/YYYY H:mm:ss"));
-    async function getPresent(date, store, checked) {
-      try {
-        await axios
-          .get(`/api/employee/attendance/${date}`)
-          .then(response => {
-            store.commit("isPresent", response.data["present"]);
-            checked = store.state.is_present;
-            $('[data-plugin="switchery"]').each(function(idx, obj) {
-              new Switchery($(this)[0], $(this).data());
-            });
-            if (response.data["present"]) {
-              store.state.entry_trigger = false;
-              $(".switchery").click();
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    getPresent(date, this.$store, this.checked);
-
-    if (this.checked) {
-      this.checkedBoxLable = "I'm in ";
-    } else {
-      this.checkedBoxLable = "I'm out";
-    }
+    // async function getPresent(date, store, checked, checkedBoxLable) {
+    //   try {
+    //     await axios
+    //       .get(`/api/employee/attendance/${date}`)
+    //       .then(response => {
+    //         store.commit("isPresent", response.data["present"]);
+    //         checked = store.state.is_present;
+    //         if (checked) {
+    //           checkedBoxLable = "I'm in ";
+    //         } else {
+    //           checkedBoxLable = "I'm out";
+    //         }
+    //         $('[data-plugin="switchery"]').each(function(idx, obj) {
+    //           new Switchery($(this)[0], $(this).data());
+    //         });
+    //         if (response.data["present"]) {
+    //           store.state.entry_trigger = false;
+    //           $(".switchery").click();
+    //           checkedBoxLable = "I'm in ";
+    //         }
+    //       })
+    //       .catch(err => {
+    //         console.log(err);
+    //       });
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // }
+    // getPresent(date, this.$store, this.checked, this.checkedBoxLable);
   }
 };
 </script>

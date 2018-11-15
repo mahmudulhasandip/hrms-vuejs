@@ -9,7 +9,7 @@ export default {
         isLoggedIn: !!user,
         loading: false,
         auth_error: null,
-        // employees: [],
+        employees: [],
         attandence: null,
         in_time: null,
         out_time: null,

@@ -20,6 +20,12 @@
                                 </div>
 
                                 <div class="account-content">
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert" v-if="authError">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                        {{ authError }}
+                                    </div>
                                     <form @submit.prevent="authenticate">
                                         <div class="form-group mb-3">
                                             <label for="emailaddress" class="font-weight-medium">Email address</label>
@@ -40,7 +46,6 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div><p class="text-danger">ok</p></div>
 
                                         <div class="form-group row text-center">
                                             <div class="col-12">
@@ -99,6 +104,11 @@ export default {
         .catch(error => {
           this.$store.commit("loginFailed", { error });
         });
+    }
+  },
+  computed: {
+    authError() {
+      return this.$store.getters.authError;
     }
   }
 };

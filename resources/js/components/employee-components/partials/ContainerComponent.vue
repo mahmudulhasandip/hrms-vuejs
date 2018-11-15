@@ -31,7 +31,8 @@ export default {
     "app-footer": FooterComponent
   },
   created() {
-    console.log(_.isEmpty() ? "Lodash everywhere!" : "Uh oh..");
+    //   get office time
+    this.$store.dispatch("officeTime");
   },
   mounted() {
     //
