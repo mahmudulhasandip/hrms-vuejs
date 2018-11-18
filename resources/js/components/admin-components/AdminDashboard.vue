@@ -5,7 +5,7 @@
 <script>
 import DashboardItem from "./DashboardItem";
 export default {
-  name: "employee-dashboard",
+  name: "admin-dashboard",
   components: {
     "dash-items": DashboardItem
   }
