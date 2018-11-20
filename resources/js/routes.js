@@ -1,6 +1,7 @@
 // admin components
 import AdminLogin from "./components/AdminLogin.vue";
-import AdminDashboard from "./components/admin-components/AdminDashboard.vue";
+import AdminComponents from "./components/admin-components/AdminComponents.vue";
+import adminDashboardItem from "./components/admin-components/dashboardItem.vue";
 
 // employee components
 import Login from "./components/Login.vue";
@@ -12,18 +13,24 @@ export const routes = [
         path: "/",
         component: Login
     },
-
     // admin routes
     {
         path: "/admin/login",
         component: AdminLogin
     },
     {
-        path: "/admin/dashboard",
-        component: AdminDashboard,
-        meta: { requiresAuth: true }
+        path: "/admin",
+        component: AdminComponents,
+        children: [
+            {
+                path: "dashboard",
+                component: adminDashboardItem
+            }
+        ],
+        meta: {
+            requiresAdminAuth: true
+        }
     },
-
     // employee routes
     {
         path: "/login",

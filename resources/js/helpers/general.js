@@ -3,11 +3,20 @@ export function initialize(store, router) {
         const requiresAuth = to.matched.some(
             record => record.meta.requiresAuth
         );
+        const requiresAdminAuth = to.matched.some(
+            record => record.meta.requiresAdminAuth
+        );
+
         const currentUser = store.state.currentUser;
+        const currentAdmin = store.state.currentAdmin;
 
         if (requiresAuth && !currentUser) {
             next("/login");
+        } else if (requiresAdminAuth && !currentAdmin) {
+            next("/admin/login");
         } else if (to.path == "/login" && currentUser) {
+            next("/employee/dashboard");
+        } else if (to.path == "/admin/login" && currentAdmin) {
             next("/employee/dashboard");
         } else {
             next();
@@ -25,6 +34,9 @@ export function initialize(store, router) {
 
     if (store.getters.currentUser) {
         setAuthorization(store.getters.currentUser.token);
+    }
+    if (store.getters.currentAdmin) {
+        setAuthorization(store.getters.currentAdmin.token);
     }
 }
 

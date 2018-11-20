@@ -24,6 +24,8 @@
 import HeaderComponent from "./HeaderComponent";
 import SidebarComponent from "./SidebarComponent";
 import FooterComponent from "./FooterComponent";
+import MetisMenu from "./../../../../../public/assets/libs/metismenu/metisMenu.min.js";
+
 export default {
   components: {
     "app-header": HeaderComponent,
@@ -33,8 +35,17 @@ export default {
   created() {
     //   get office time
     this.$store.dispatch("officeTime");
+    // this.$scriptLoader.load(
+    //   "/assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"
+    // );
+    // this.$scriptLoader.load("/assets/libs/metismenu/metisMenu.min.js");
+    this.$scriptLoader.load("/assets/js/jquery.core.js");
+    this.$scriptLoader.load("/assets/js/jquery.app.js");
   },
   mounted() {
+    const config = {};
+    const menu = new MetisMenu(this.$el, config); // $el is the dom needs metisMenu
+    menu.init();
     //
     // const switchery = document.createElement("script");
     // switchery.setAttribute(

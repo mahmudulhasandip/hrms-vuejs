@@ -145,7 +145,6 @@ export default {
     }
   },
   created() {
-
     // loading external plugins
     this.$scriptLoader.load(
       "/assets/libs/jquery-toast-plugin/jquery.toast.min.js"

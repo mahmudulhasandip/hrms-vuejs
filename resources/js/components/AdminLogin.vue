@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import { login } from "../helpers/auth.js";
+import { login } from "../helpers/adminAuth.js";
 import { setAuthorization } from "./../helpers/general.js";
 // import { userData } from "../helpers/auth.js";
 
@@ -97,9 +97,9 @@ export default {
 
       login(this.$data.form)
         .then(res => {
-          this.$store.commit("loginSuccess", res);
-          setAuthorization(this.$store.getters.currentUser.token);
-          this.$router.push({ path: "/employee/dashboard" });
+          this.$store.commit("adminLoginSuccess", res);
+          setAuthorization(this.$store.getters.currentAdmin.token);
+          this.$router.push({ path: "/admin/dashboard" });
         })
         .catch(error => {
           this.$store.commit("loginFailed", { error });

@@ -94,7 +94,7 @@
                         </a>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" @click="logout" class="dropdown-item notify-item">
+                        <a href="javascript:void(0);" @click="logoutme" class="dropdown-item notify-item">
                             <i class="dripicons-power"></i> <span>Logout</span>
                         </a>
 
@@ -141,11 +141,12 @@
 </template>
 
 <script>
+import { logout } from "./../../../helpers/adminAuth.js";
 export default {
   methods: {
-    logout() {
-      this.$store.commit("logout");
-      this.$router.push("/login");
+    logoutme() {
+      this.$store.commit("adminLogout");
+      this.$router.push("/admin/login");
     }
   }
 };

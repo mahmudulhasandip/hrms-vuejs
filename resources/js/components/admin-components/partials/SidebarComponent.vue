@@ -12,7 +12,7 @@
                     <li class="menu-title">Navigation</li>
 
                     <li>
-                        <router-link to="/employee/dashboard">
+                        <router-link to="/admin/dashboard">
                             <i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span>
                         </router-link>
                     </li>

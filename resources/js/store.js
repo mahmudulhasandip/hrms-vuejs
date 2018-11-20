@@ -1,10 +1,16 @@
 import { getLocalUser } from "./helpers/auth";
+import { getLocalAdmin } from "./helpers/adminAuth";
 import Axios from "axios";
 
 const user = getLocalUser();
+const admin = getLocalAdmin();
 
 export default {
     state: {
+        // admin
+        currentAdmin: admin,
+
+        // employee
         currentUser: user,
         isLoggedIn: !!user,
         loading: false,
@@ -23,11 +29,18 @@ export default {
         isLoggedIn(state) {
             return state.isLoggedIn;
         },
-        currentUser(state) {
-            return state.currentUser;
-        },
+
         authError(state) {
             return state.auth_error;
+        },
+        // admin
+        currentAdmin(state) {
+            return state.currentAdmin;
+        },
+
+        // employee
+        currentUser(state) {
+            return state.currentUser;
         },
         employees(state) {
             return state.employees;
@@ -46,6 +59,27 @@ export default {
         }
     },
     mutations: {
+        // Admin
+        adminLoginSuccess(state, payload) {
+            state.auth_error = null;
+            state.isLoggedIn = true;
+            state.loading = false;
+            state.currentAdmin = Object.assign({}, payload.admin, {
+                token: payload.access_token
+            });
+            localStorage.setItem("admin", JSON.stringify(state.currentAdmin));
+        },
+        adminLoginFailed(state, payload) {
+            state.loading = true;
+            state.auth_error = payload.error;
+        },
+        adminLogout(state) {
+            localStorage.removeItem("admin");
+            state.isLoggedIn = false;
+            state.currentAdmin = null;
+        },
+
+        // employee
         login(state) {
             state.loading = true;
             state.auth_error = null;
@@ -68,6 +102,7 @@ export default {
             state.isLoggedIn = false;
             state.currentUser = null;
             state.is_present = false;
+            state.entry_trigger = true;
         },
         isPresent(state, payload) {
             state.is_present = payload;
