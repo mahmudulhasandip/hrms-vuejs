@@ -17,6 +17,15 @@
                         </router-link>
                     </li>
 
+                    <li>
+                        <router-link to=""><i class="mdi mdi-account"></i> <span> Employees </span> <span class="menu-arrow"></span></router-link>
+                        <ul class="nav-second-level nav" aria-expanded="false">
+                            <li><router-link to="/admin/employee/list">Employee List</router-link></li>
+
+                        </ul>
+
+                    </li>
+
 
                     <!-- <li>
                         <a href="javascript: void(0);"><i class="mdi mdi-multiplication"></i> <span> Multi Level </span> <span class="menu-arrow"></span></a>

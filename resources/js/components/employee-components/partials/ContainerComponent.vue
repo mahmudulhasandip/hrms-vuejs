@@ -46,29 +46,6 @@ export default {
     const config = {};
     const menu = new MetisMenu(this.$el, config); // $el is the dom needs metisMenu
     menu.init();
-    //
-    // const switchery = document.createElement("script");
-    // switchery.setAttribute(
-    //   "src",
-    //   "/assets/libs/mohithg-switchery/switchery.min.js"
-    // );
-    // switchery.async = true;
-    // document.body.appendChild(switchery);
-    //
-    // const jqueryCore = document.createElement("script");
-    // jqueryCore.setAttribute("src", "/assets/js/jquery.core.js");
-    // jqueryCore.async = true;
-    // document.body.appendChild(jqueryCore);
-    // //
-    // const jqueryApp = document.createElement("script");
-    // jqueryApp.setAttribute("src", "/assets/js/jquery.app.js");
-    // jqueryApp.async = true;
-    // document.body.appendChild(jqueryApp);
-    // const mainApp = document.createElement("script");
-    // mainApp.setAttribute("src", "/js/app.js");
-    // mainApp.async = true;
-    // document.body.appendChild(mainApp);
-    // this.$store.dispatch("present");
   }
 };
 </script>

@@ -2,6 +2,7 @@
 import AdminLogin from "./components/AdminLogin.vue";
 import AdminComponents from "./components/admin-components/AdminComponents.vue";
 import adminDashboardItem from "./components/admin-components/dashboardItem.vue";
+import EmployeeList from "./components/admin-components/EmployeeList.vue";
 
 // employee components
 import Login from "./components/Login.vue";
@@ -25,6 +26,10 @@ export const routes = [
             {
                 path: "dashboard",
                 component: adminDashboardItem
+            },
+            {
+                path: "employee/list",
+                component: EmployeeList
             }
         ],
         meta: {

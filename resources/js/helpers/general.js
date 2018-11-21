@@ -17,7 +17,7 @@ export function initialize(store, router) {
         } else if (to.path == "/login" && currentUser) {
             next("/employee/dashboard");
         } else if (to.path == "/admin/login" && currentAdmin) {
-            next("/employee/dashboard");
+            next("/admin/dashboard");
         } else {
             next();
         }
