@@ -1,22 +1,25 @@
 <template>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="wrapper">
-        <!-- header -->
-        <app-header />
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div id="wrapper">
+    <!-- header -->
+    <app-header/>
 
-        <!-- sidebar -->
-        <app-sidebar></app-sidebar>
+    <!-- sidebar -->
+    <app-sidebar></app-sidebar>
 
-        <!-- content -->
-        <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-            <router-view></router-view>
-        </transition>
+    <!-- content -->
+    <transition
+      enter-active-class="animated fadeIn faster"
+      leave-active-class="animated fadeOut faster"
+    >
+      <router-view></router-view>
+    </transition>
 
-        <!-- footer -->
-        <app-footer></app-footer>
-    </div>
+    <!-- footer -->
+    <app-footer></app-footer>
+  </div>
 </template>
 
 

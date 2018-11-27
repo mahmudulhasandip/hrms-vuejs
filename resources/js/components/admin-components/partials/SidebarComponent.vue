@@ -1,33 +1,33 @@
 <template>
-    <!-- ========== Left Sidebar Start ========== -->
-    <div class="left-side-menu">
+  <!-- ========== Left Sidebar Start ========== -->
+  <div class="left-side-menu">
+    <div class="slimscroll-menu">
+      <!--- Sidemenu -->
+      <div id="sidebar-menu">
+        <ul class="metismenu" id="side-menu">
+          <li class="menu-title">Navigation</li>
 
-        <div class="slimscroll-menu">
+          <li>
+            <router-link to="/admin/dashboard">
+              <i class="mdi mdi-view-dashboard"></i>
+              <span>Dashboard</span>
+            </router-link>
+          </li>
 
-            <!--- Sidemenu -->
-            <div id="sidebar-menu">
+          <li>
+            <router-link to>
+              <i class="mdi mdi-account"></i>
+              <span>Employees</span>
+              <span class="menu-arrow"></span>
+            </router-link>
+            <ul class="nav-second-level nav" aria-expanded="false">
+              <li>
+                <router-link to="/admin/employee/list">Employee List</router-link>
+              </li>
+            </ul>
+          </li>
 
-                <ul class="metismenu" id="side-menu">
-
-                    <li class="menu-title">Navigation</li>
-
-                    <li>
-                        <router-link to="/admin/dashboard">
-                            <i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span>
-                        </router-link>
-                    </li>
-
-                    <li>
-                        <router-link to=""><i class="mdi mdi-account"></i> <span> Employees </span> <span class="menu-arrow"></span></router-link>
-                        <ul class="nav-second-level nav" aria-expanded="false">
-                            <li><router-link to="/admin/employee/list">Employee List</router-link></li>
-
-                        </ul>
-
-                    </li>
-
-
-                    <!-- <li>
+          <!-- <li>
                         <a href="javascript: void(0);"><i class="mdi mdi-multiplication"></i> <span> Multi Level </span> <span class="menu-arrow"></span></a>
                         <ul class="nav-second-level nav" aria-expanded="false">
                             <li><a href="javascript: void(0);">Level 1.1</a></li>
@@ -39,21 +39,15 @@
                             </li>
                         </ul>
 
-                    </li> -->
-
-
-                </ul>
-
-            </div>
-            <!-- Sidebar -->
-
-            <div class="clearfix"></div>
-
-        </div>
-        <!-- Sidebar -left -->
-
+          </li>-->
+        </ul>
+      </div>
+      <!-- Sidebar -->
+      <div class="clearfix"></div>
     </div>
-    <!-- Left Sidebar End -->
+    <!-- Sidebar -left -->
+  </div>
+  <!-- Left Sidebar End -->
 </template>
 
 
@@ -61,8 +55,10 @@
 export default {
   methods: {
     logout() {
+      this.$Progress.start();
       this.$store.commit("logout");
       this.$router.push("/login");
+      this.$Progress.finish();
     }
   }
 };
