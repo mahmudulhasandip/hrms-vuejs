@@ -63868,7 +63868,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* @import url(\"./../../../../public/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css\");\n@import url(\"./../../../../public/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css\");\n@import url(\"./../../../../public/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css\");\n@import url(\"./../../../../public/assets/libs/datatables.net-select-bs4/css/select.bootstrap4.min.css\"); */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* @import url(\"./../../../../public/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css\");\n@import url(\"./../../../../public/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css\");\n@import url(\"./../../../../public/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css\");\n@import url(\"./../../../../public/assets/libs/datatables.net-select-bs4/css/select.bootstrap4.min.css\"); */\n", ""]);
 
 // exports
 
@@ -63943,175 +63943,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {},
-  mounted: function mounted() {}
+  data: function data() {
+    return {
+      employees: [],
+      employee: {
+        id: 0,
+        name: "",
+        email: "",
+        gender: "",
+        phone: ""
+      },
+      url: "/api/admin/employee",
+      pagination: []
+    };
+  },
+  mounted: function mounted() {
+    this.getEmployees();
+  },
+
+  methods: {
+    getEmployees: function getEmployees() {
+      var _this = this;
+
+      var $this = this;
+      axios.get(this.url).then(function (response) {
+        // console.log(response.data.data);
+        _this.employees = response.data.data;
+
+        $this.makePagination(response.data);
+      });
+    },
+    makePagination: function makePagination(data) {
+      var pagination = {
+        current_page: data.current_page,
+        last_page: data.last_page,
+        next_page_url: data.next_page_url,
+        prev_page_url: data.prev_page_url
+      };
+
+      this.pagination = pagination;
+    },
+    fetchPaginateUser: function fetchPaginateUser(url) {
+      this.url = url;
+      this.getEmployees();
+    }
+  }
 });
 
 /***/ }),
@@ -64122,394 +64000,133 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-page" }, [
-      _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "page-title-box" }, [
-            _c("h4", { staticClass: "page-title" }, [_vm._v("Employee List")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "card-box" }, [
-                _c("h4", { staticClass: "header-title" }, [
-                  _vm._v("Employee List")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "table",
-                  {
-                    staticClass: "table table-bordered dt-responsive nowrap",
-                    attrs: { id: "datatable" }
-                  },
-                  [
-                    _c("thead", [
-                      _c("th", [_vm._v("ID")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Name")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Email")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Gender")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("DOB")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("NID")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Phone")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Salary")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Leave")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("Action")])
-                    ]),
-                    _vm._v(" "),
-                    _c("tbody", [
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
-                        _c("td", [_vm._v("1")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("2")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("3")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("4")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("5")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("6")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("7")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("8")]),
+  return _c("div", { staticClass: "content-page" }, [
+    _c("div", { staticClass: "content" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12" }, [
+            _c("div", { staticClass: "card-box" }, [
+              _c("h4", { staticClass: "header-title" }, [
+                _vm._v("Employee List")
+              ]),
+              _vm._v(" "),
+              _c(
+                "table",
+                {
+                  staticClass: "table table-bordered dt-responsive nowrap",
+                  attrs: { id: "datatable" }
+                },
+                [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.employees, function(employee) {
+                      return _c("tr", { key: employee.id }, [
+                        _c("td", [_vm._v(_vm._s(employee.id))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(employee.fname) +
+                              " " +
+                              _vm._s(employee.lname)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(employee.email))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(employee.gender))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(employee.date_of_birth))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(employee.phone))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(employee.salary))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(employee.leave))]),
                         _vm._v(" "),
                         _c("td", [_vm._v("8")])
                       ])
-                    ])
-                  ]
+                    })
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "btn-group mb-2" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-light",
+                    attrs: {
+                      type: "button",
+                      disabled: !_vm.pagination.prev_page_url
+                    },
+                    on: {
+                      click: function($event) {
+                        _vm.fetchPaginateUser(_vm.pagination.prev_page_url)
+                      }
+                    }
+                  },
+                  [_vm._v("Prev")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-light",
+                    attrs: {
+                      type: "button",
+                      disabled: !_vm.pagination.next_page_url
+                    },
+                    on: {
+                      click: function($event) {
+                        _vm.fetchPaginateUser(_vm.pagination.next_page_url)
+                      }
+                    }
+                  },
+                  [_vm._v("Next")]
                 )
               ])
             ])
           ])
         ])
       ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-title-box" }, [
+      _c("h4", { staticClass: "page-title" }, [_vm._v("Employee List")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("th", [_vm._v("ID")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Name")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Email")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Gender")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("DOB")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Phone")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Salary")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Leave")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Action")])
     ])
   }
 ]

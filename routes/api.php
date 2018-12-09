@@ -31,6 +31,9 @@ Route::group([
     Route::post('me', 'AdminAuth\AuthController@me');
 });
 
+Route::group(['middleware' => 'jwt.auth', 'prefix' => '/admin'], function($router){
+    Route::get('/employee', 'AdminController\EmployeeController@employeeList');
+});
 
 
 // Employee Routes
