@@ -7,7 +7,7 @@
     <li>npm install</li>
     <li>php artisan key:generate</li>
     <li>php artisan jwt:secret</li>
-    <li>php artisan make:seeder DatabaseSeeder</li>
+    <li>php artisan migrate --seed</li>
 </ul>
 
 <b>Now run both command in defferent terminal:</b>
