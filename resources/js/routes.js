@@ -3,6 +3,7 @@ import AdminLogin from "./components/AdminLogin.vue";
 import AdminComponents from "./components/admin-components/AdminComponents.vue";
 import adminDashboardItem from "./components/admin-components/dashboardItem.vue";
 import EmployeeList from "./components/admin-components/EmployeeList.vue";
+import NewEmployee from "./components/admin-components/NewEmployee.vue";
 
 // employee components
 import Login from "./components/Login.vue";
@@ -30,6 +31,10 @@ export const routes = [
             {
                 path: "employee/list",
                 component: EmployeeList
+            },
+            {
+                path: "employee/new",
+                component: NewEmployee
             }
         ],
         meta: {

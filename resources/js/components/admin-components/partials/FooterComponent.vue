@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 text-center">
-                    2018 © HRMS
+                    {{ currentYear }} © HRMS
                 </div>
             </div>
         </div>
@@ -123,3 +123,14 @@
     <!-- /Right-bar -->
 </div>
 </template>
+
+
+<script>
+export default {
+    data(){
+        return {
+            currentYear: (new Date()).getFullYear()
+        }
+    }
+}
+</script>

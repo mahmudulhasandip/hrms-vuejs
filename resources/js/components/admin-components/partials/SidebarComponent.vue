@@ -24,6 +24,9 @@
               <li>
                 <router-link to="/admin/employee/list">Employee List</router-link>
               </li>
+              <li>
+                <router-link to="/admin/employee/new">New Employee</router-link>
+              </li>
             </ul>
           </li>
 

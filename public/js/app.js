@@ -61544,13 +61544,16 @@ var admin = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_adminAuth__["a" /* getLo
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_admin_components_dashboardItem_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_admin_components_dashboardItem_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_admin_components_EmployeeList_vue__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_admin_components_EmployeeList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_admin_components_EmployeeList_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Login_vue__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_Login_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_employee_components_EmployeeComponents_vue__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_employee_components_EmployeeComponents_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_employee_components_EmployeeComponents_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_employee_components_DashboardItem_vue__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_employee_components_DashboardItem_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_employee_components_DashboardItem_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_admin_components_NewEmployee_vue__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_admin_components_NewEmployee_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_admin_components_NewEmployee_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login_vue__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_Login_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_employee_components_EmployeeComponents_vue__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_employee_components_EmployeeComponents_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_employee_components_EmployeeComponents_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_employee_components_DashboardItem_vue__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_employee_components_DashboardItem_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_employee_components_DashboardItem_vue__);
 // admin components
+
 
 
 
@@ -61563,7 +61566,7 @@ var admin = Object(__WEBPACK_IMPORTED_MODULE_1__helpers_adminAuth__["a" /* getLo
 
 var routes = [{
     path: "/",
-    component: __WEBPACK_IMPORTED_MODULE_4__components_Login_vue___default.a
+    component: __WEBPACK_IMPORTED_MODULE_5__components_Login_vue___default.a
 },
 // admin routes
 {
@@ -61578,6 +61581,9 @@ var routes = [{
     }, {
         path: "employee/list",
         component: __WEBPACK_IMPORTED_MODULE_3__components_admin_components_EmployeeList_vue___default.a
+    }, {
+        path: "employee/new",
+        component: __WEBPACK_IMPORTED_MODULE_4__components_admin_components_NewEmployee_vue___default.a
     }],
     meta: {
         requiresAdminAuth: true
@@ -61586,13 +61592,13 @@ var routes = [{
 // employee routes
 {
     path: "/login",
-    component: __WEBPACK_IMPORTED_MODULE_4__components_Login_vue___default.a
+    component: __WEBPACK_IMPORTED_MODULE_5__components_Login_vue___default.a
 }, {
     path: "/employee",
-    component: __WEBPACK_IMPORTED_MODULE_5__components_employee_components_EmployeeComponents_vue___default.a,
+    component: __WEBPACK_IMPORTED_MODULE_6__components_employee_components_EmployeeComponents_vue___default.a,
     children: [{
         path: "dashboard",
-        component: __WEBPACK_IMPORTED_MODULE_6__components_employee_components_DashboardItem_vue___default.a
+        component: __WEBPACK_IMPORTED_MODULE_7__components_employee_components_DashboardItem_vue___default.a
     }],
     meta: { requiresAuth: true }
 }];
@@ -63209,6 +63215,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
@@ -63275,6 +63284,18 @@ var render = function() {
                       )
                     ],
                     1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    [
+                      _c(
+                        "router-link",
+                        { attrs: { to: "/admin/employee/new" } },
+                        [_vm._v("New Employee")]
+                      )
+                    ],
+                    1
                   )
                 ]
               )
@@ -63305,7 +63326,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(241)
 /* template */
 var __vue_template__ = __webpack_require__(192)
 /* template functional */
@@ -63353,272 +63374,261 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("footer", { staticClass: "footer" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 text-center" }, [
+            _vm._v(
+              "\n                    " +
+                _vm._s(_vm.currentYear) +
+                " © HRMS\n                "
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("footer", { staticClass: "footer" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12 text-center" }, [
-              _vm._v("\n                    2018 © HRMS\n                ")
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "right-bar" }, [
+      _c("div", { staticClass: "rightbar-title" }, [
+        _c(
+          "a",
+          {
+            staticClass: "right-bar-toggle float-right",
+            attrs: { href: "javascript:void(0);" }
+          },
+          [_c("i", { staticClass: "dripicons-cross noti-icon" })]
+        ),
+        _vm._v(" "),
+        _c("h5", { staticClass: "m-0" }, [_vm._v("Settings")])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "right-bar" }, [
-        _c("div", { staticClass: "rightbar-title" }, [
-          _c(
-            "a",
-            {
-              staticClass: "right-bar-toggle float-right",
-              attrs: { href: "javascript:void(0);" }
-            },
-            [_c("i", { staticClass: "dripicons-cross noti-icon" })]
-          ),
+      _c("div", { staticClass: "slimscroll-menu" }, [
+        _c("div", { staticClass: "user-box" }, [
+          _c("div", { staticClass: "user-img" }, [
+            _c("img", {
+              staticClass: "rounded-circle img-fluid",
+              attrs: {
+                src: "assets/images/users/avatar-1.jpg",
+                alt: "user-img",
+                title: "Mat Helme"
+              }
+            }),
+            _vm._v(" "),
+            _c("a", { staticClass: "user-edit", attrs: { href: "" } }, [
+              _c("i", { staticClass: "mdi mdi-pencil" })
+            ])
+          ]),
           _vm._v(" "),
-          _c("h5", { staticClass: "m-0" }, [_vm._v("Settings")])
+          _c("h5", [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Agnes Kennedy")])
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-muted mb-0" }, [
+            _c("small", [_vm._v("Admin Head")])
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "slimscroll-menu" }, [
-          _c("div", { staticClass: "user-box" }, [
-            _c("div", { staticClass: "user-img" }, [
-              _c("img", {
-                staticClass: "rounded-circle img-fluid",
-                attrs: {
-                  src: "assets/images/users/avatar-1.jpg",
-                  alt: "user-img",
-                  title: "Mat Helme"
-                }
-              }),
-              _vm._v(" "),
-              _c("a", { staticClass: "user-edit", attrs: { href: "" } }, [
-                _c("i", { staticClass: "mdi mdi-pencil" })
-              ])
-            ]),
+        _c("hr", { staticClass: "mt-0" }),
+        _vm._v(" "),
+        _c("h5", { staticClass: "pl-3" }, [_vm._v("Basic Settings")]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "mb-0" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-3" }, [
+          _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
+            _c("input", {
+              attrs: { id: "checkbox1", type: "checkbox", checked: "" }
+            }),
             _vm._v(" "),
-            _c("h5", [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("Agnes Kennedy")])
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted mb-0" }, [
-              _c("small", [_vm._v("Admin Head")])
+            _c("label", { attrs: { for: "checkbox1" } }, [
+              _vm._v(
+                "\n                        Notifications\n                    "
+              )
             ])
           ]),
           _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
-          _vm._v(" "),
-          _c("h5", { staticClass: "pl-3" }, [_vm._v("Basic Settings")]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "mb-0" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-3" }, [
-            _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
-              _c("input", {
-                attrs: { id: "checkbox1", type: "checkbox", checked: "" }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "checkbox1" } }, [
-                _vm._v(
-                  "\n                        Notifications\n                    "
-                )
-              ])
-            ]),
+          _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
+            _c("input", {
+              attrs: { id: "checkbox2", type: "checkbox", checked: "" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
-              _c("input", {
-                attrs: { id: "checkbox2", type: "checkbox", checked: "" }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "checkbox2" } }, [
-                _vm._v(
-                  "\n                        API Access\n                    "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
-              _c("input", { attrs: { id: "checkbox3", type: "checkbox" } }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "checkbox3" } }, [
-                _vm._v(
-                  "\n                        Auto Updates\n                    "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
-              _c("input", {
-                attrs: { id: "checkbox4", type: "checkbox", checked: "" }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "checkbox4" } }, [
-                _vm._v(
-                  "\n                        Online Status\n                    "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "checkbox checkbox-primary mb-0" }, [
-              _c("input", {
-                attrs: { id: "checkbox5", type: "checkbox", checked: "" }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "checkbox5" } }, [
-                _vm._v(
-                  "\n                        Auto Payout\n                    "
-                )
-              ])
+            _c("label", { attrs: { for: "checkbox2" } }, [
+              _vm._v(
+                "\n                        API Access\n                    "
+              )
             ])
           ]),
           _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
-          _vm._v(" "),
-          _c("h5", { staticClass: "pl-3 pr-3" }, [
-            _vm._v("Messages "),
-            _c(
-              "span",
-              { staticClass: "float-right badge badge-pill badge-danger" },
-              [_vm._v("25")]
-            )
+          _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
+            _c("input", { attrs: { id: "checkbox3", type: "checkbox" } }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "checkbox3" } }, [
+              _vm._v(
+                "\n                        Auto Updates\n                    "
+              )
+            ])
           ]),
           _vm._v(" "),
-          _c("hr", { staticClass: "mb-0" }),
+          _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
+            _c("input", {
+              attrs: { id: "checkbox4", type: "checkbox", checked: "" }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "checkbox4" } }, [
+              _vm._v(
+                "\n                        Online Status\n                    "
+              )
+            ])
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "p-3" }, [
-            _c("div", { staticClass: "inbox-widget" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "inbox-item" }, [
-                  _c("div", { staticClass: "inbox-item-img" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle",
-                      attrs: {
-                        src: "assets/images/users/avatar-1.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-author" }, [
-                    _vm._v("Chadengle")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-text" }, [
-                    _vm._v("Hey! there I'm available...")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-date" }, [
-                    _vm._v("13:40 PM")
-                  ])
+          _c("div", { staticClass: "checkbox checkbox-primary mb-0" }, [
+            _c("input", {
+              attrs: { id: "checkbox5", type: "checkbox", checked: "" }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "checkbox5" } }, [
+              _vm._v(
+                "\n                        Auto Payout\n                    "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "mt-0" }),
+        _vm._v(" "),
+        _c("h5", { staticClass: "pl-3 pr-3" }, [
+          _vm._v("Messages "),
+          _c(
+            "span",
+            { staticClass: "float-right badge badge-pill badge-danger" },
+            [_vm._v("25")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "mb-0" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-3" }, [
+          _c("div", { staticClass: "inbox-widget" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("div", { staticClass: "inbox-item" }, [
+                _c("div", { staticClass: "inbox-item-img" }, [
+                  _c("img", {
+                    staticClass: "rounded-circle",
+                    attrs: { src: "assets/images/users/avatar-1.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-author" }, [
+                  _vm._v("Chadengle")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-text" }, [
+                  _vm._v("Hey! there I'm available...")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-date" }, [
+                  _vm._v("13:40 PM")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "inbox-item" }, [
-                  _c("div", { staticClass: "inbox-item-img" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle",
-                      attrs: {
-                        src: "assets/images/users/avatar-2.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-author" }, [
-                    _vm._v("Tomaslau")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-text" }, [
-                    _vm._v("I've finished it! See you so...")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-date" }, [
-                    _vm._v("13:34 PM")
-                  ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [
+              _c("div", { staticClass: "inbox-item" }, [
+                _c("div", { staticClass: "inbox-item-img" }, [
+                  _c("img", {
+                    staticClass: "rounded-circle",
+                    attrs: { src: "assets/images/users/avatar-2.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-author" }, [
+                  _vm._v("Tomaslau")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-text" }, [
+                  _vm._v("I've finished it! See you so...")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-date" }, [
+                  _vm._v("13:34 PM")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "inbox-item" }, [
-                  _c("div", { staticClass: "inbox-item-img" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle",
-                      attrs: {
-                        src: "assets/images/users/avatar-3.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-author" }, [
-                    _vm._v("Stillnotdavid")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-text" }, [
-                    _vm._v("This theme is awesome!")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-date" }, [
-                    _vm._v("13:17 PM")
-                  ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [
+              _c("div", { staticClass: "inbox-item" }, [
+                _c("div", { staticClass: "inbox-item-img" }, [
+                  _c("img", {
+                    staticClass: "rounded-circle",
+                    attrs: { src: "assets/images/users/avatar-3.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-author" }, [
+                  _vm._v("Stillnotdavid")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-text" }, [
+                  _vm._v("This theme is awesome!")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-date" }, [
+                  _vm._v("13:17 PM")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "inbox-item" }, [
-                  _c("div", { staticClass: "inbox-item-img" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle",
-                      attrs: {
-                        src: "assets/images/users/avatar-4.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-author" }, [
-                    _vm._v("Kurafire")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-text" }, [
-                    _vm._v("Nice to meet you")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-date" }, [
-                    _vm._v("12:20 PM")
-                  ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [
+              _c("div", { staticClass: "inbox-item" }, [
+                _c("div", { staticClass: "inbox-item-img" }, [
+                  _c("img", {
+                    staticClass: "rounded-circle",
+                    attrs: { src: "assets/images/users/avatar-4.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-author" }, [
+                  _vm._v("Kurafire")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-text" }, [
+                  _vm._v("Nice to meet you")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-date" }, [
+                  _vm._v("12:20 PM")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "inbox-item" }, [
-                  _c("div", { staticClass: "inbox-item-img" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle",
-                      attrs: {
-                        src: "assets/images/users/avatar-5.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-author" }, [
-                    _vm._v("Shahedk")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-text" }, [
-                    _vm._v("Hey! there I'm available...")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-date" }, [
-                    _vm._v("10:15 AM")
-                  ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [
+              _c("div", { staticClass: "inbox-item" }, [
+                _c("div", { staticClass: "inbox-item-img" }, [
+                  _c("img", {
+                    staticClass: "rounded-circle",
+                    attrs: { src: "assets/images/users/avatar-5.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-author" }, [
+                  _vm._v("Shahedk")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-text" }, [
+                  _vm._v("Hey! there I'm available...")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-date" }, [
+                  _vm._v("10:15 AM")
                 ])
               ])
             ])
@@ -65842,7 +65852,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(240)
 /* template */
 var __vue_template__ = __webpack_require__(222)
 /* template functional */
@@ -65890,272 +65900,261 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("footer", { staticClass: "footer" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 text-center" }, [
+            _vm._v(
+              "\n                    " +
+                _vm._s(_vm.currentYear) +
+                " © HRMS\n                "
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("footer", { staticClass: "footer" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12 text-center" }, [
-              _vm._v("\n                    2018 © HRMS\n                ")
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "right-bar" }, [
+      _c("div", { staticClass: "rightbar-title" }, [
+        _c(
+          "a",
+          {
+            staticClass: "right-bar-toggle float-right",
+            attrs: { href: "javascript:void(0);" }
+          },
+          [_c("i", { staticClass: "dripicons-cross noti-icon" })]
+        ),
+        _vm._v(" "),
+        _c("h5", { staticClass: "m-0" }, [_vm._v("Settings")])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "right-bar" }, [
-        _c("div", { staticClass: "rightbar-title" }, [
-          _c(
-            "a",
-            {
-              staticClass: "right-bar-toggle float-right",
-              attrs: { href: "javascript:void(0);" }
-            },
-            [_c("i", { staticClass: "dripicons-cross noti-icon" })]
-          ),
+      _c("div", { staticClass: "slimscroll-menu" }, [
+        _c("div", { staticClass: "user-box" }, [
+          _c("div", { staticClass: "user-img" }, [
+            _c("img", {
+              staticClass: "rounded-circle img-fluid",
+              attrs: {
+                src: "assets/images/users/avatar-1.jpg",
+                alt: "user-img",
+                title: "Mat Helme"
+              }
+            }),
+            _vm._v(" "),
+            _c("a", { staticClass: "user-edit", attrs: { href: "" } }, [
+              _c("i", { staticClass: "mdi mdi-pencil" })
+            ])
+          ]),
           _vm._v(" "),
-          _c("h5", { staticClass: "m-0" }, [_vm._v("Settings")])
+          _c("h5", [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Agnes Kennedy")])
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-muted mb-0" }, [
+            _c("small", [_vm._v("Admin Head")])
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "slimscroll-menu" }, [
-          _c("div", { staticClass: "user-box" }, [
-            _c("div", { staticClass: "user-img" }, [
-              _c("img", {
-                staticClass: "rounded-circle img-fluid",
-                attrs: {
-                  src: "assets/images/users/avatar-1.jpg",
-                  alt: "user-img",
-                  title: "Mat Helme"
-                }
-              }),
-              _vm._v(" "),
-              _c("a", { staticClass: "user-edit", attrs: { href: "" } }, [
-                _c("i", { staticClass: "mdi mdi-pencil" })
-              ])
-            ]),
+        _c("hr", { staticClass: "mt-0" }),
+        _vm._v(" "),
+        _c("h5", { staticClass: "pl-3" }, [_vm._v("Basic Settings")]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "mb-0" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-3" }, [
+          _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
+            _c("input", {
+              attrs: { id: "checkbox1", type: "checkbox", checked: "" }
+            }),
             _vm._v(" "),
-            _c("h5", [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("Agnes Kennedy")])
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted mb-0" }, [
-              _c("small", [_vm._v("Admin Head")])
+            _c("label", { attrs: { for: "checkbox1" } }, [
+              _vm._v(
+                "\n                        Notifications\n                    "
+              )
             ])
           ]),
           _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
-          _vm._v(" "),
-          _c("h5", { staticClass: "pl-3" }, [_vm._v("Basic Settings")]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "mb-0" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-3" }, [
-            _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
-              _c("input", {
-                attrs: { id: "checkbox1", type: "checkbox", checked: "" }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "checkbox1" } }, [
-                _vm._v(
-                  "\n                        Notifications\n                    "
-                )
-              ])
-            ]),
+          _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
+            _c("input", {
+              attrs: { id: "checkbox2", type: "checkbox", checked: "" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
-              _c("input", {
-                attrs: { id: "checkbox2", type: "checkbox", checked: "" }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "checkbox2" } }, [
-                _vm._v(
-                  "\n                        API Access\n                    "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
-              _c("input", { attrs: { id: "checkbox3", type: "checkbox" } }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "checkbox3" } }, [
-                _vm._v(
-                  "\n                        Auto Updates\n                    "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
-              _c("input", {
-                attrs: { id: "checkbox4", type: "checkbox", checked: "" }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "checkbox4" } }, [
-                _vm._v(
-                  "\n                        Online Status\n                    "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "checkbox checkbox-primary mb-0" }, [
-              _c("input", {
-                attrs: { id: "checkbox5", type: "checkbox", checked: "" }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "checkbox5" } }, [
-                _vm._v(
-                  "\n                        Auto Payout\n                    "
-                )
-              ])
+            _c("label", { attrs: { for: "checkbox2" } }, [
+              _vm._v(
+                "\n                        API Access\n                    "
+              )
             ])
           ]),
           _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
-          _vm._v(" "),
-          _c("h5", { staticClass: "pl-3 pr-3" }, [
-            _vm._v("Messages "),
-            _c(
-              "span",
-              { staticClass: "float-right badge badge-pill badge-danger" },
-              [_vm._v("25")]
-            )
+          _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
+            _c("input", { attrs: { id: "checkbox3", type: "checkbox" } }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "checkbox3" } }, [
+              _vm._v(
+                "\n                        Auto Updates\n                    "
+              )
+            ])
           ]),
           _vm._v(" "),
-          _c("hr", { staticClass: "mb-0" }),
+          _c("div", { staticClass: "checkbox checkbox-primary mb-2" }, [
+            _c("input", {
+              attrs: { id: "checkbox4", type: "checkbox", checked: "" }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "checkbox4" } }, [
+              _vm._v(
+                "\n                        Online Status\n                    "
+              )
+            ])
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "p-3" }, [
-            _c("div", { staticClass: "inbox-widget" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "inbox-item" }, [
-                  _c("div", { staticClass: "inbox-item-img" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle",
-                      attrs: {
-                        src: "assets/images/users/avatar-1.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-author" }, [
-                    _vm._v("Chadengle")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-text" }, [
-                    _vm._v("Hey! there I'm available...")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-date" }, [
-                    _vm._v("13:40 PM")
-                  ])
+          _c("div", { staticClass: "checkbox checkbox-primary mb-0" }, [
+            _c("input", {
+              attrs: { id: "checkbox5", type: "checkbox", checked: "" }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "checkbox5" } }, [
+              _vm._v(
+                "\n                        Auto Payout\n                    "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "mt-0" }),
+        _vm._v(" "),
+        _c("h5", { staticClass: "pl-3 pr-3" }, [
+          _vm._v("Messages "),
+          _c(
+            "span",
+            { staticClass: "float-right badge badge-pill badge-danger" },
+            [_vm._v("25")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "mb-0" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-3" }, [
+          _c("div", { staticClass: "inbox-widget" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("div", { staticClass: "inbox-item" }, [
+                _c("div", { staticClass: "inbox-item-img" }, [
+                  _c("img", {
+                    staticClass: "rounded-circle",
+                    attrs: { src: "assets/images/users/avatar-1.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-author" }, [
+                  _vm._v("Chadengle")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-text" }, [
+                  _vm._v("Hey! there I'm available...")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-date" }, [
+                  _vm._v("13:40 PM")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "inbox-item" }, [
-                  _c("div", { staticClass: "inbox-item-img" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle",
-                      attrs: {
-                        src: "assets/images/users/avatar-2.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-author" }, [
-                    _vm._v("Tomaslau")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-text" }, [
-                    _vm._v("I've finished it! See you so...")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-date" }, [
-                    _vm._v("13:34 PM")
-                  ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [
+              _c("div", { staticClass: "inbox-item" }, [
+                _c("div", { staticClass: "inbox-item-img" }, [
+                  _c("img", {
+                    staticClass: "rounded-circle",
+                    attrs: { src: "assets/images/users/avatar-2.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-author" }, [
+                  _vm._v("Tomaslau")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-text" }, [
+                  _vm._v("I've finished it! See you so...")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-date" }, [
+                  _vm._v("13:34 PM")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "inbox-item" }, [
-                  _c("div", { staticClass: "inbox-item-img" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle",
-                      attrs: {
-                        src: "assets/images/users/avatar-3.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-author" }, [
-                    _vm._v("Stillnotdavid")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-text" }, [
-                    _vm._v("This theme is awesome!")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-date" }, [
-                    _vm._v("13:17 PM")
-                  ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [
+              _c("div", { staticClass: "inbox-item" }, [
+                _c("div", { staticClass: "inbox-item-img" }, [
+                  _c("img", {
+                    staticClass: "rounded-circle",
+                    attrs: { src: "assets/images/users/avatar-3.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-author" }, [
+                  _vm._v("Stillnotdavid")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-text" }, [
+                  _vm._v("This theme is awesome!")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-date" }, [
+                  _vm._v("13:17 PM")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "inbox-item" }, [
-                  _c("div", { staticClass: "inbox-item-img" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle",
-                      attrs: {
-                        src: "assets/images/users/avatar-4.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-author" }, [
-                    _vm._v("Kurafire")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-text" }, [
-                    _vm._v("Nice to meet you")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-date" }, [
-                    _vm._v("12:20 PM")
-                  ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [
+              _c("div", { staticClass: "inbox-item" }, [
+                _c("div", { staticClass: "inbox-item-img" }, [
+                  _c("img", {
+                    staticClass: "rounded-circle",
+                    attrs: { src: "assets/images/users/avatar-4.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-author" }, [
+                  _vm._v("Kurafire")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-text" }, [
+                  _vm._v("Nice to meet you")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-date" }, [
+                  _vm._v("12:20 PM")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [
-                _c("div", { staticClass: "inbox-item" }, [
-                  _c("div", { staticClass: "inbox-item-img" }, [
-                    _c("img", {
-                      staticClass: "rounded-circle",
-                      attrs: {
-                        src: "assets/images/users/avatar-5.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-author" }, [
-                    _vm._v("Shahedk")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-text" }, [
-                    _vm._v("Hey! there I'm available...")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "inbox-item-date" }, [
-                    _vm._v("10:15 AM")
-                  ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [
+              _c("div", { staticClass: "inbox-item" }, [
+                _c("div", { staticClass: "inbox-item-img" }, [
+                  _c("img", {
+                    staticClass: "rounded-circle",
+                    attrs: { src: "assets/images/users/avatar-5.jpg", alt: "" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-author" }, [
+                  _vm._v("Shahedk")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-text" }, [
+                  _vm._v("Hey! there I'm available...")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "inbox-item-date" }, [
+                  _vm._v("10:15 AM")
                 ])
               ])
             ])
@@ -67665,6 +67664,829 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            currentYear: new Date().getFullYear()
+        };
+    }
+});
+
+/***/ }),
+/* 241 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            currentYear: new Date().getFullYear()
+        };
+    }
+});
+
+/***/ }),
+/* 242 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(244)
+/* template */
+var __vue_template__ = __webpack_require__(243)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/admin-components/NewEmployee.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-01a19144", Component.options)
+  } else {
+    hotAPI.reload("data-v-01a19144", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 243 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content-page" }, [
+      _c("div", { staticClass: "content" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "page-title-box" }, [
+            _c("h4", { staticClass: "page-title" }, [_vm._v("Employee List")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "card-box" }, [
+                _c("h4", { staticClass: "m-t-0 header-title" }, [
+                  _vm._v("Form row")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-muted m-b-30 font-13" }, [
+                  _vm._v("\n              You may also swap\n              "),
+                  _c("code", { staticClass: "highlighter-rouge" }, [
+                    _vm._v(".row")
+                  ]),
+                  _vm._v(" for\n              "),
+                  _c("code", { staticClass: "highlighter-rouge" }, [
+                    _vm._v(".form-row")
+                  ]),
+                  _vm._v(
+                    ", a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts.\n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("form", [
+                  _c("div", { staticClass: "form-row" }, [
+                    _c("div", { staticClass: "form-group col-md-6" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-form-label",
+                          attrs: { for: "fname" }
+                        },
+                        [_vm._v("First Name")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "fname",
+                          placeholder: "First Name",
+                          name: "fname"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-6" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-form-label",
+                          attrs: { for: "lname" }
+                        },
+                        [_vm._v("Last Name")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "lname",
+                          placeholder: "Last Name",
+                          name: "lname"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-4" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-form-label",
+                          attrs: { for: "inputState" }
+                        },
+                        [_vm._v("Gender")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          staticClass: "form-control",
+                          attrs: { id: "inputState", name: "gender" }
+                        },
+                        [
+                          _c("option", [_vm._v("Choose")]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Male")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Female")
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-4" }, [
+                      _c("label", { staticClass: "col-form-label" }, [
+                        _vm._v("Date")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "date", name: "date_of_birth" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-4" }, [
+                      _c(
+                        "label",
+                        { staticClass: "col-form-label", attrs: { for: "" } },
+                        [_vm._v("Phone")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "",
+                          placeholder: "Phone",
+                          name: "phone"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-6" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-form-label",
+                          attrs: { for: "inputEmail4" }
+                        },
+                        [_vm._v("Email")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "email",
+                          id: "inputEmail4",
+                          placeholder: "Email",
+                          name: "email"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-6" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-form-label",
+                          attrs: { for: "inputPassword4" }
+                        },
+                        [_vm._v("Password")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "password",
+                          id: "inputPassword4",
+                          placeholder: "Password",
+                          name: "password"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-row" }, [
+                    _c("div", { staticClass: "form-group col-md-6" }, [
+                      _c(
+                        "label",
+                        { staticClass: "col-form-label", attrs: { for: "" } },
+                        [_vm._v("Current Address")]
+                      ),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        staticClass: "form-control",
+                        attrs: {
+                          name: "current_address",
+                          id: "",
+                          cols: "30",
+                          rows: "5"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-6" }, [
+                      _c(
+                        "label",
+                        { staticClass: "col-form-label", attrs: { for: "" } },
+                        [_vm._v("Permanent Address")]
+                      ),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        staticClass: "form-control",
+                        attrs: {
+                          name: "permanent_address",
+                          id: "",
+                          cols: "30",
+                          rows: "5"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-row" }, [
+                    _c("div", { staticClass: "form-group col-md-3" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-form-label",
+                          attrs: { for: "inputCity" }
+                        },
+                        [_vm._v("City")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "text", id: "inputCity", name: "city" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-3" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-form-label",
+                          attrs: { for: "inputCountry" }
+                        },
+                        [_vm._v("Country")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "inputCountry",
+                          name: "country"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-4" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-form-label",
+                          attrs: { for: "inputState" }
+                        },
+                        [_vm._v("State")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          staticClass: "form-control",
+                          attrs: { id: "inputState" }
+                        },
+                        [
+                          _c("option", [_vm._v("Choose")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("1")])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-2" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-form-label",
+                          attrs: { for: "inputZip" }
+                        },
+                        [_vm._v("Zip")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: { type: "text", id: "inputZip" }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("div", { staticClass: "form-check" }, [
+                      _c("label", { staticClass: "form-check-label" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox" }
+                        }),
+                        _vm._v(" Check me out\n                  ")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Sign in")]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-01a19144", module.exports)
+  }
+}
+
+/***/ }),
+/* 244 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ })
 /******/ ]);
