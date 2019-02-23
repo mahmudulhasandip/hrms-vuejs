@@ -29,7 +29,8 @@ const scriptLoader = {
         if (document) {
             const script = document.createElement("script");
             script.setAttribute("src", src);
-            document.head.appendChild(script);
+            // document.body.appendChild(script);
+            document.querySelector('script[src*="core.js"]').before(script);
         }
     }
 };

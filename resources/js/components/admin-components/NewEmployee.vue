@@ -46,8 +46,8 @@
                     >
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="inputState" class="col-form-label">Gender</label>
-                    <select id="inputState" class="form-control" name="gender">
+                    <label for="gender" class="col-form-label">Gender</label>
+                    <select id="gender" class="form-control" name="gender">
                       <option>Choose</option>
                       <option value>Male</option>
                       <option value>Female</option>
@@ -58,8 +58,14 @@
                     <input class="form-control" type="date" name="date_of_birth">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for class="col-form-label">Phone</label>
-                    <input type="text" class="form-control" id placeholder="Phone" name="phone">
+                    <label for="phone" class="col-form-label">Phone</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="phone"
+                      placeholder="Phone"
+                      name="phone"
+                    >
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputEmail4" class="col-form-label">Email</label>
@@ -84,12 +90,24 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for class="col-form-label">Current Address</label>
-                    <textarea class="form-control" name="current_address" id cols="30" rows="5"></textarea>
+                    <label for="current_address" class="col-form-label">Current Address</label>
+                    <textarea
+                      class="form-control"
+                      name="current_address"
+                      id="current_address"
+                      cols="30"
+                      rows="5"
+                    ></textarea>
                   </div>
                   <div class="form-group col-md-6">
-                    <label for class="col-form-label">Permanent Address</label>
-                    <textarea class="form-control" name="permanent_address" id cols="30" rows="5"></textarea>
+                    <label for="permanent_address" class="col-form-label">Permanent Address</label>
+                    <textarea
+                      class="form-control"
+                      name="permanent_address"
+                      id="permanent_address"
+                      cols="30"
+                      rows="5"
+                    ></textarea>
                   </div>
                 </div>
                 <div class="form-row">
@@ -101,16 +119,54 @@
                     <label for="inputCountry" class="col-form-label">Country</label>
                     <input type="text" class="form-control" id="inputCountry" name="country">
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputState" class="col-form-label">State</label>
-                    <select id="inputState" class="form-control">
+                  <div class="form-group col-md-3">
+                    <label for="inputRole" class="col-form-label">Role</label>
+                    <select id="inputRole" class="form-control" name="role_id">
                       <option>Choose</option>
-                      <option>1</option>
+                      <option>Role</option>
                     </select>
                   </div>
-                  <div class="form-group col-md-2">
-                    <label for="inputZip" class="col-form-label">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                  <div class="form-group col-md-3">
+                    <label for="inputState" class="col-form-label">Marital Status</label>
+                    <select id="inputState" class="form-control" name="marital_status">
+                      <option>Choose</option>
+                      <option>Married</option>
+                      <option>Unmarried</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="father_name" class="col-form-label">Father's Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="father_name"
+                      placeholder="First Name"
+                      name="father_name"
+                    >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="mother_name" class="col-form-label">Mother's Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="mother_name"
+                      placeholder="First Name"
+                      name="mother_name"
+                    >
+                  </div>
+
+                  <div class="fallback">
+                    <input name="file" type="file" multiple="multiple">
+                  </div>
+                  <div class="dz-message needsclick">
+                    <i class="h1 text-muted dripicons-cloud-upload"></i>
+                    <h3>Drop files here or click to upload.</h3>
+                    <span class="text-muted font-13">
+                      (This is just a demo dropzone. Selected files are
+                      <strong>not</strong> actually uploaded.)
+                    </span>
                   </div>
                 </div>
                 <div class="form-group">
@@ -137,5 +193,9 @@
 
 
 <script>
-export default {};
+export default {
+  created() {
+    this.$scriptLoader.load("/assets/libs/dropzone/min/dropzone.min.js");
+  }
+};
 </script>
