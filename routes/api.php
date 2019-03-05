@@ -33,6 +33,8 @@ Route::group([
 
 Route::group(['middleware' => 'jwt.auth', 'prefix' => '/admin'], function($router){
     Route::get('/employee', 'AdminController\EmployeeController@employeeList');
+    Route::get('/get/role', 'AdminController\EmployeeController@getRole');
+    Route::post('/employee/new/create', 'AdminController\EmployeeController@createEmployee');
 });
 
 
