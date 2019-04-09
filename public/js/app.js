@@ -2552,6 +2552,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // import vue2Dropzone from "vue2-dropzone";
 // import "vue2-dropzone/dist/vue2Dropzone.min.css";
 
@@ -2605,9 +2615,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     createEmployee: function createEmployee() {
-      axios.post("/api/admin/employee/new/create", this.form).then(function (res) {
-        return console.log(res.data);
-      }).catch(function (err) {
+      axios.post("/api/admin/employee/new/create", this.form).then(this.$router.push("/admin/employee/list")).catch(function (err) {
         return console.log(err.response.data);
       });
     },
@@ -52274,7 +52282,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-row" }, [
-                    _c("div", { staticClass: "form-group col-md-4" }, [
+                    _c("div", { staticClass: "form-group col-md-3" }, [
                       _c(
                         "label",
                         {
@@ -52311,7 +52319,44 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "form-group col-md-4" }, [
+                    _c("div", { staticClass: "form-group col-md-3" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-form-label",
+                          attrs: { for: "leave" }
+                        },
+                        [_vm._v("Leave")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.leave,
+                            expression: "form.leave"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "leave",
+                          placeholder: "leave"
+                        },
+                        domProps: { value: _vm.form.leave },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "leave", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-md-3" }, [
                       _c(
                         "label",
                         {
@@ -52344,7 +52389,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "form-group col-md-4" }, [
+                    _c("div", { staticClass: "form-group col-md-3" }, [
                       _c(
                         "label",
                         {

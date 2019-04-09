@@ -141,7 +141,7 @@
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
                     <label for="salary" class="col-form-label">Salary</label>
                     <input
                       type="text"
@@ -151,7 +151,17 @@
                       v-model="form.salary"
                     >
                   </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
+                    <label for="leave" class="col-form-label">Leave</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="leave"
+                      placeholder="leave"
+                      v-model="form.leave"
+                    >
+                  </div>
+                  <div class="form-group col-md-3">
                     <label for="nid" class="col-form-label">NID</label>
                     <input
                       type="text"
@@ -162,7 +172,7 @@
                     >
                   </div>
 
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-3">
                     <label for="nationality" class="col-form-label">Nationality</label>
                     <input
                       type="text"
@@ -307,7 +317,7 @@ export default {
     createEmployee() {
       axios
         .post("/api/admin/employee/new/create", this.form)
-        .then(res => console.log(res.data))
+        .then(this.$router.push("/admin/employee/list"))
         .catch(err => console.log(err.response.data));
     },
     // imageSelect(e) {

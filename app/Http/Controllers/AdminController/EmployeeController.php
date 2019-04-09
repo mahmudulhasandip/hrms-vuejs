@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Storage;
+
 use Config;
 use JWTAuth;
 use JWTAuthException;
@@ -13,6 +15,8 @@ use JWTAuthException;
 use App\Employee;
 use Symfony\Component\HttpFoundation\Response;
 use App\Role;
+
+use Image;
 
 class EmployeeController extends Controller
 {
@@ -30,7 +34,7 @@ class EmployeeController extends Controller
     }
 
     public function employeeList(){
-        $employees = Employee::paginate(10);
+        $employees = Employee::orderBy('id', 'desc')->paginate(10);
         return response()->json($employees);
     }
 
@@ -42,24 +46,16 @@ class EmployeeController extends Controller
     public function createEmployee(Request $request){
         $employee = $request->all();
         $employee['password'] = bcrypt($request->password);
-        $employee['date_of_birth'] = date('Y-m-d', strtotime($request->data_of_birth));
+        $employee['date_of_birth'] = date('Y-m-d', strtotime($request->date_of_birth));
         $image = $request->dp;  // your base64 encoded
-        $image = str_replace('data:image/png;base64,', '', $image);
-        $image = str_replace(' ', '+', $image);
-        // echo $image;
-        if( $image){
-            $ext = $image->getClientOriginalExtension();
-            $filename = time() . '.' . $ext;
-            $upload = $image->storeAs(
-                'employee/dp/',
-                $filename
-            );
-
+        if($image){
+            $name = time() . "." . explode('/', explode(':', substr($image, 0, strpos($image, ';')))[1])[1];
+            $img = Image::make($image);
+            $upload = Storage::put( 'employee/dp/'.$name, $img->stream());
             if($upload){
-                $employee->dp = $filename;
+                $employee['dp'] = $name;
             }
         }
-        echo ($request->all());
         $employee = Employee::create($employee);
         return response($employee, Response::HTTP_CREATED);
     }
