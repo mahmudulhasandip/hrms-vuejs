@@ -15,8 +15,8 @@ class AdminsTableSeeder extends Seeder
         //
         DB::table('admins')->insert([
             'name' => 'Admin',
-            'email' => 'ablaze.dip@gmail.com',
-            'password' => bcrypt('123456'),
+            'email' => 'airobotics.asia@gmail.com',
+            'password' => bcrypt('secret123456'),
         ]);
     }
 }

@@ -1,30 +1,47 @@
 <template>
-    <!-- Page Content Start -->
-    <div class="content-page">
-        <div class="content">
-            <div class="container-fluid">
-
-                <!-- Page title box -->
-                <div class="page-title-box">
-                    <!-- <ol class="breadcrumb float-right">
+  <!-- Page Content Start -->
+  <div class="content-page">
+    <div class="content">
+      <div class="container-fluid">
+        <!-- Page title box -->
+        <div class="page-title-box">
+          <!-- <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Greeva</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
                         <li class="breadcrumb-item active">Starter</li>
-                    </ol> -->
-                    <div class="pt-2 float-right">
-                        <label for="attendance_switch">{{ checkedBoxLable }} </label>
-                        <input class="" id="attendance_switch" type="checkbox" v-model="checked"  @change="onChange" data-plugin="switchery" data-color="#1bb99a" data-secondary-color="#ff5d48" checked/>
-                        <!-- <div class="toggle-btn ">
+          </ol>-->
+          <div class="pt-2 float-right">
+            <label for="attendance_switch">{{ checkedBoxLable }}</label>
+            <input
+              class
+              id="attendance_switch"
+              type="checkbox"
+              v-model="checked"
+              @change="onChange"
+              data-plugin="switchery"
+              data-color="#1bb99a"
+              data-secondary-color="#ff5d48"
+              checked
+            >
+            <!-- <div class="toggle-btn ">
                             <input type="checkbox"  v-model="checked"  @change="onChange" class="cb-value" />
                             <span class="round-btn"></span>
-                        </div> -->
-
-                    </div>
-                    <h4 class="page-title">Starter</h4>
-                </div>
-                <!-- End page title box -->
-                <div class="row">
-                    <div class="col-sm-4">
+            </div>-->
+          </div>
+          <h4 class="page-title">Dashboard Coming Soon</h4>
+        </div>
+        <!-- End page title box -->
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-4">
+            <div class="card-box ribbon-box">
+              <div class="ribbon ribbon-primary">Dashboard Coming Soon</div>
+              <p
+                class="m-b-0"
+              >Dashboard and other features are coming soon. For now, toggle the button on top right to give attendance for "In time" and "Out time". Time count once per day.</p>
+            </div>
+            <!-- end card-box-->
+          </div>
+          <!-- <div class="col-sm-4">
                         <div class="card-box widget-chart-one gradient-success bx-shadow-lg">
                             <router-link to="/employee/dashboard">
                                 <div class="float-left">
@@ -62,14 +79,14 @@
                                 </div>
                             </router-link>
                         </div>
-                    </div>
-
-                </div>
-
-            </div> <!-- end container-fluid-->
-         </div> <!-- end contant-->
+          </div>-->
+        </div>
+      </div>
+      <!-- end container-fluid-->
     </div>
-    <!-- End Page Content-->
+    <!-- end contant-->
+  </div>
+  <!-- End Page Content-->
 </template>
 
 <script>

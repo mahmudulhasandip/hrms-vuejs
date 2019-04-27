@@ -28,27 +28,42 @@
                   <th>Phone</th>
                   <th>Salary</th>
                   <th>Leave</th>
-                  <th>Action</th>
+                  <!-- <th>Action</th> -->
                 </thead>
 
                 <tbody>
                   <tr v-for="employee in employees" :key="employee.id">
                     <td>{{ employee.id }}</td>
-                    <td>{{ employee.fname }} {{ employee.lname }}</td>
+                    <td>
+                      <router-link
+                        :to="{ path: '/admin/employee/attendance/'+ employee.id }"
+                        :name="employee.fname"
+                      >{{ employee.fname }} {{ employee.lname }}</router-link>
+                    </td>
                     <td>{{ employee.email }}</td>
                     <td>{{ employee.gender }}</td>
                     <td>{{ employee.date_of_birth }}</td>
                     <td>{{ employee.phone }}</td>
                     <td>{{ employee.salary }}</td>
                     <td>{{ employee.leave }}</td>
-                    <td>8</td>
+                    <!-- <td>8</td> -->
                   </tr>
                 </tbody>
               </table>
               <div class="btn-group mb-2">
-                <button type="button" class="btn btn-light" @click="fetchPaginateUser(pagination.prev_page_url)" :disabled='!pagination.prev_page_url'>Prev</button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  @click="fetchPaginateUser(pagination.prev_page_url)"
+                  :disabled="!pagination.prev_page_url"
+                >Prev</button>
                 <!-- <button type="button" class="btn btn-light">1</button> -->
-                <button type="button" class="btn btn-light" @click="fetchPaginateUser(pagination.next_page_url)" :disabled='!pagination.next_page_url'>Next</button>
+                <button
+                  type="button"
+                  class="btn btn-light"
+                  @click="fetchPaginateUser(pagination.next_page_url)"
+                  :disabled="!pagination.next_page_url"
+                >Next</button>
               </div>
             </div>
           </div>
@@ -102,9 +117,9 @@ export default {
       this.pagination = pagination;
     },
 
-    fetchPaginateUser(url){
-        this.url = url;
-        this.getEmployees();
+    fetchPaginateUser(url) {
+      this.url = url;
+      this.getEmployees();
     }
   }
 };

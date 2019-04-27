@@ -10,9 +10,9 @@
                 <!-- Logo box-->
                 <div class="account-logo-box">
                   <h2 class="text-uppercase text-center">
-                    <a href="index.html" class="text-success">
+                    <a href="/" class="text-success">
                       <span>
-                        <img :src="'assets/images/logo_dark.png'" alt height="28">
+                        <img :src="'assets/images/logo_black.png'" alt height="100">
                       </span>
                     </a>
                   </h2>

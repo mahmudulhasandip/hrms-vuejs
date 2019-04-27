@@ -11,6 +11,10 @@
 |
 */
 
+// Route::get('example', function () {
+//     Artisan::call('storage:link');
+// });
+
 Route::get('{path}', function () {
     return view('welcome');
 })->where( 'path', '([A-z\d-\/_.]+)?' );

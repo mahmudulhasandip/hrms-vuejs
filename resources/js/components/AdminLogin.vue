@@ -10,9 +10,9 @@
                 <!-- Logo box-->
                 <div class="account-logo-box">
                   <h2 class="text-uppercase text-center">
-                    <a href="index.html" class="text-success">
+                    <a href="/" class="text-success">
                       <span>
-                        <img :src="'/assets/images/logo_dark.png'" alt height="28">
+                        <img :src="'/assets/images/logo_black.png'" alt height="100">
                       </span>
                     </a>
                   </h2>
@@ -76,7 +76,8 @@
                   <!-- end form -->
                   <div class="row mt-3">
                     <div class="col-12 text-center">
-                      <p class="text-muted">Don't have an account?
+                      <p class="text-muted">
+                        Don't have an account?
                         <a href="#" class="text-dark m-l-5">
                           <b>Sign Up</b>
                         </a>

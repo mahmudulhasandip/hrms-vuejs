@@ -3,6 +3,7 @@ import AdminLogin from "./components/AdminLogin.vue";
 import AdminComponents from "./components/admin-components/AdminComponents.vue";
 import adminDashboardItem from "./components/admin-components/DashboardItem.vue";
 import EmployeeList from "./components/admin-components/EmployeeList.vue";
+import EmployeeAttendance from "./components/admin-components/EmployeeAttendance.vue";
 import NewEmployee from "./components/admin-components/NewEmployee.vue";
 
 // employee components
@@ -10,10 +11,11 @@ import Login from "./components/Login.vue";
 import EmployeeComponents from "./components/employee-components/EmployeeComponents.vue";
 import DashboardItem from "./components/employee-components/DashboardItem.vue";
 
-export const routes = [
-    {
+import StartComponent from "./components/StartComponent.vue";
+
+export const routes = [{
         path: "/",
-        component: Login
+        component: StartComponent
     },
     // admin routes
     {
@@ -23,14 +25,18 @@ export const routes = [
     {
         path: "/admin",
         component: AdminComponents,
-        children: [
-            {
+        children: [{
                 path: "dashboard",
                 component: adminDashboardItem
             },
             {
                 path: "employee/list",
                 component: EmployeeList
+            },
+            {
+                path: "employee/attendance/:id",
+                component: EmployeeAttendance,
+                props: true
             },
             {
                 path: "employee/new",
@@ -49,12 +55,12 @@ export const routes = [
     {
         path: "/employee",
         component: EmployeeComponents,
-        children: [
-            {
-                path: "dashboard",
-                component: DashboardItem
-            }
-        ],
-        meta: { requiresAuth: true }
+        children: [{
+            path: "dashboard",
+            component: DashboardItem
+        }],
+        meta: {
+            requiresAuth: true
+        }
     }
 ];

@@ -15,6 +15,7 @@ use JWTAuthException;
 use App\Employee;
 use Symfony\Component\HttpFoundation\Response;
 use App\Role;
+use Carbon\Carbon;
 
 use Image;
 
@@ -34,8 +35,14 @@ class EmployeeController extends Controller
     }
 
     public function employeeList(){
-        $employees = Employee::orderBy('id', 'desc')->paginate(10);
+        $employees = Employee::orderBy('id', 'asc')->paginate(10);
         return response()->json($employees);
+    }
+
+    public function employeeAttendance($id){
+        $att = Employee::find($id)->attendance()->whereMonth('created_at', Carbon::now()->month)->get();
+        $emp = Employee::find($id)->first();
+        return response()->json(['att'=>$att, 'name' => $emp->fname." ".$emp->lname]);
     }
 
     public function getRole(){

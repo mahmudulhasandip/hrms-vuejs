@@ -8,7 +8,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         {{-- Website title --}}
-        <title>Laravel</title>
+        <title>AiRobotics - HRMS</title>
 
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.ico') }}">
