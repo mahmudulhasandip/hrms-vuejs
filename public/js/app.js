@@ -73313,8 +73313,8 @@ var admin = Object(_helpers_adminAuth__WEBPACK_IMPORTED_MODULE_1__["getLocalAdmi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\work\_laravel\hrms\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\work\_laravel\hrms\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/projects/hrms-vuejs/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/projects/hrms-vuejs/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
